@@ -72,3 +72,9 @@ Thumbs.db
 # ---- Tooling scratch (browser automation snapshots, hook caches, etc.) ----
 .playwright-mcp/
 .impeccable/
+
+# ---- Presentation build scratch ----
+# The .pptx and its figures are tracked; the throwaway deck venv and the layout-audit
+# renders (regenerate with `make presentation-check`) are not.
+.venv-deck/
+presentation/preview/

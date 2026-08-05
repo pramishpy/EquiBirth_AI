@@ -86,6 +86,12 @@ input.
 > `reports/weeks5to9_dashboard_data.json`, which is full-data. The canonical numbers for citation
 > are the full-data ones in `FINDINGS.md` and `reports/week*`.
 
+**Final presentation** (`presentation/`). A 13-slide editable `.pptx` for a 10-minute talk, plus
+`SPEAKER_SCRIPT.md`, a word-for-word script sized to land at 9:40 at a normal speaking pace. Every
+figure and every number on the slides is generated from the tracked artifacts in `reports/`; two
+build scripts assemble it and three auditors gate it, so no slide claim is hand-typed. See
+[`presentation/README.md`](presentation/README.md) for the slide-by-slide narrative.
+
 ## Quickstart
 
 ```bash
@@ -149,8 +155,9 @@ from scratch, which keeps reproduction fully determined by data plus seed.
 src/equibirth/   ingest, features, models, fairness, explain, eval, explore, viz, app, utils
 tests/           mirrors src/ 1:1 (137 passing)
 notebooks/       week1..week9 storytelling series, compiled last from verified scripts
-scripts/         weekN_* pipeline runners and notebook/dashboard builders
+scripts/         weekN_* pipeline runners, notebook/dashboard builders, presentation builders
 reports/         per-week md/json artifacts, model card, datasheet, HTML dashboards
+presentation/    the 13-slide final deck, its speaker script, and generated figures
 data/            raw, interim, processed (gitignored; populated by the scripts above)
 docs/process/    week-1 working notes
 ```
