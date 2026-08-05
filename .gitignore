@@ -1,0 +1,74 @@
+# ---- Sensitive / private (never push) ----
+CLAUDE.md
+RTK.md
+AGENTS.md
+.claude/
+# Private working notes live under docs/, EXCEPT the published process write-ups in docs/process/.
+docs/*
+!docs/process/
+# Internal planning / strategy docs (kept local, not on the public repo).
+plan.md
+vision.md
+initial_plan.md
+.tmp/
+*.private.*
+.env
+.env.*
+secrets.yaml
+*.key
+*.pem
+
+# ---- Data (downloaded by scripts; never commit raw/derived data) ----
+data/raw/
+data/interim/
+data/processed/
+data/external/
+*.parquet
+*.csv
+*.zip
+*.gz
+*.txt.gz
+*.dat
+
+# ---- Sample-derived figures (non-representative; not deliverables) ----
+reports/figures/
+
+# ---- Models / experiment artifacts ----
+models/
+# ...but the source package src/equibirth/models/ is code, not an artifact: keep it tracked.
+!src/equibirth/models/
+!src/equibirth/models/**
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.onnx
+wandb/
+mlruns/
+optuna_study.db
+
+# ---- Python ----
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Tooling scratch (browser automation snapshots, hook caches, etc.) ----
+.playwright-mcp/
+.impeccable/

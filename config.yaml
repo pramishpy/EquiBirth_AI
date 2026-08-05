@@ -1,0 +1,144 @@
+# EquiBirth AI - single source of runtime configuration.
+# Read via equibirth.utils.config.load_config. Do not hardcode any of these elsewhere.
+# Every value here is a starting assumption to be confirmed against the real data (see plan.md Section 0).
+
+project:
+  name: equibirth-ai
+  random_seed: 42
+
+paths:
+  data_raw: data/raw
+  data_interim: data/interim
+  data_processed: data/processed
+  data_external: data/external
+  models: models
+  reports: reports
+  figures: reports/figures
+
+data:
+  # Natality public-use files. 2024 is the latest available microdata (NBER added Sept 2025).
+  # 2025 excluded: provisional only, no public-use microdata file (see DECISION_LOG D6).
+  # The canonical full-data track covers 2018-2024 (2018 verified header-compatible with 2019:
+  # 238 identical columns, same race recode). scripts/week1_build_full_dataset.py is the authority.
+  natality_years: [2018, 2019, 2020, 2021, 2022, 2023, 2024]
+  # Fallback if 2019-2024 layout harmonization proves costly (DECISION_LOG D6a, D14 in SPEC).
+  fallback_years: [2022, 2023, 2024]
+  # COVID-era years flagged for sensitivity analysis (atypical care utilization).
+  covid_era_years: [2020, 2021]
+  # Primary analysis restricts to singleton births (removes plurality confounder).
+  singletons_only: true
+  # Gestational-age variable: NVSR uses the OBSTETRIC ESTIMATE (not LMP-based COMBGEST).
+  # Exact column name varies by year (e.g. OEGEST_COMB / OEGest_Comb). CONFIRM per year from the
+  # User Guide before parsing; pin the per-year name here. Do NOT use the global placeholder in code.
+  # Obstetric estimate = TARGET (expected OEGEST_COMB in 2014+ files). LMP-based = EXCLUDED (expected
+  # COMBGEST). Both pinned per year from the User Guide BEFORE any parser code (SPEC FR1.1). A startup
+  # config-validation guard must raise ConfigurationError if either map is empty when the pipeline runs.
+  # Confirmed via FR1.1 against the real NBER CSV header (2023, 2024): obstetric estimate = oegest_comb.
+  # NBER CSV column names are standardized lowercase across years; loader validates presence per year.
+  gestational_age_var_by_year: {2019: oegest_comb, 2020: oegest_comb, 2021: oegest_comb, 2022: oegest_comb, 2023: oegest_comb, 2024: oegest_comb}
+  lmp_gestation_var_by_year: {2019: combgest, 2020: combgest, 2021: combgest, 2022: combgest, 2023: combgest, 2024: combgest}
+  preterm_threshold_weeks: 37
+  # FR1.1 OVERTURNED Correction 5: NBER serves analysis-ready per-year CSV (text/csv, 237 cols),
+  # so NO fixed-width parsing is needed. Use CSV, integrity-checked. URL template below.
+  download_source_primary: nber
+  csv_url_template: "https://data.nber.org/nvss/natality/csv/{year}/natality{year}us.csv"
+  expected_row_counts_by_year: {2018: 3801534, 2019: 3747000, 2020: 3613000, 2021: 3664000, 2022: 3667000, 2023: 3596000, 2024: 3600000}
+  # Harmonized race/ethnicity categories (2019+ uses the post-2018 NCHS recode). Confirm exact labels
+  # against NVSR 2024 Table 1 before any fairness code. reference_group must match one string here.
+  race_ethnicity_harmonized_categories: [NH White, NH Black, Hispanic, NH AIAN, NH Asian, NH NHOPI, NH Multiracial]
+  # Expected preterm rate sanity band for the chosen target (matches published NVSR ~10.4%).
+  preterm_rate_sanity_band: [0.095, 0.115]
+  # Missing-value sentinels are PER-VARIABLE, not global (a blanket [9,99,...] corrupts valid values
+  # such as 9 prenatal visits or parity 9). Built from the User Guide "codes" column into a
+  # data dictionary; see SPEC FR3. No global na_sentinels key on purpose.
+
+sampling:
+  # Naming is deliberately unambiguous to avoid the "validation" collision (tuning vs final eval).
+  #   dev_sample          : rows drawn for model development (stratified).
+  #   held_out_final      : ALL rows not in dev_sample (the remainder ~19-20M). Final reported
+  #                         metrics and bootstrap CIs come from here, NEVER from the Optuna split.
+  #   dev_internal_val    : fraction of dev_sample used by Optuna for trial scoring + early stopping.
+  #   dev_internal_test   : fraction of dev_sample for a quick in-dev smoke check (not final eval).
+  # The delivered full-data run used a 3,000,000-row stratified working sample (1.05M dev_train /
+  # 225K dev_val / 225K dev_test / 1.5M held_out_final); see reports/datasheet.md for the exact split.
+  dev_sample_size: 3000000
+  stratify_by: [preterm, mother_race_ethnicity, birth_year]
+  held_out_strategy: remainder
+  dev_internal_val_fraction: 0.15
+  dev_internal_test_fraction: 0.15
+  # Oversample rare race groups (AIAN, NHOPI) rows for TRAINING adequacy only (plain oversample,
+  # NOT SMOTE); use sample weights for any population estimate. Outcome audit uses full population.
+  oversample_rare_groups: true
+  rare_group_positive_floor: 5000
+  # Split strategy chosen explicitly and logged; default random with a temporal sensitivity check
+  # (train pre-COVID, test 2020-2021).
+  split_strategy: random
+
+evaluation:
+  # Cross-group comparisons use AUC-ROC (base-rate invariant). AUC-PR reported but NOT compared
+  # directly across groups with different prevalence.
+  primary_metric: auc_pr
+  cross_group_metric: auc_roc
+  # TWO DISTINCT leakage gates (do not conflate):
+  #   excluded_vars_leakage_gate: classifier on EXCLUDED vars alone; AUC above this FAILS the build.
+  #   full_model_auc_alarm:       full model AUC-ROC above this TRIGGERS a mandatory SHAP audit.
+  excluded_vars_leakage_gate: 0.55
+  full_model_auc_alarm: 0.75
+  # Univariate leakage gate for timing-conditional features kept in the primary model.
+  univariate_leakage_gate: 0.60
+  calibration_bins: 12
+  bootstrap_iters: 2000
+  # Tiered subgroup reporting (do NOT hard-blank vulnerable groups; NCHS suppresses at n<10-50):
+  #   < cell_suppression_floor positives : suppress (privacy + noise).
+  #   floor .. full_ci_floor positives   : point estimate with "wide CI, interpret with caution".
+  #   >= full_ci_floor positives         : full bootstrap CI.
+  cell_suppression_floor: 50
+  full_ci_floor: 1000
+  multiple_comparisons: benjamini_hochberg
+  # Permutation null for disparity metrics is STRATIFIED within y=1 and y=0 classes (Ojala &
+  # Garriga 2010), so the test isolates disparity from base-rate differences.
+  permutation_null: stratified_within_class
+
+optuna_runtime:
+  timeout_seconds: 3600     # 1 hour per study cap (avoid CI hang)
+  n_trials_ci: 5            # smoke-run trial count in CI
+
+falsifiability:
+  # The "modest predictability + large unexplained disparity" thesis must be falsifiable.
+  # If the unexplained residual after full adjustment is below this fraction of the raw gap,
+  # report that honestly instead of defaulting to the structural framing.
+  residual_honesty_floor: 0.10
+
+imbalance:
+  # Default to class weights, NOT SMOTE (Correction 3). SMOTE only as a recalibrated ablation.
+  strategy: class_weights   # one of: class_weights | none | smote_ablation
+
+models:
+  logistic_regression:
+    penalty: l2
+    class_weight: balanced
+    max_iter: 2000
+  random_forest:
+    n_estimators: 500
+    min_samples_leaf: 10
+    class_weight: balanced
+  xgboost:
+    n_estimators: 1000
+    learning_rate: 0.05
+    max_depth: 6
+  optuna:
+    n_trials: 100
+    timeout_seconds: null
+
+fairness:
+  # Race is used as a social construct, a marker of exposure to racism (plan.md Section 4.9).
+  protected_attribute: mother_race_ethnicity
+  reference_group: NH White    # must be one of data.race_ethnicity_harmonized_categories
+  disparate_impact_floor: 0.8  # EEOC four-fifths rule (caveated reference point, not primary metric)
+  # SES proxies (birth certificates have NO income field). Stratify/decompose on these, labeled
+  # honestly as SES proxies, never as "income".
+  ses_proxy_vars: [education_level, payment_source, wic_participation]
+
+logging:
+  level: INFO
+  json: false

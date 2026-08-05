@@ -1,0 +1,14 @@
+# Theme for the deployed EquiBirth AI dashboard. Light, high-contrast, matches the in-app design system.
+[theme]
+base = "light"
+primaryColor = "#0B6FB8"
+backgroundColor = "#FBFBFD"
+secondaryBackgroundColor = "#F1F3F8"
+textColor = "#16203A"
+font = "sans serif"
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false

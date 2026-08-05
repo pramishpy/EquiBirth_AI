@@ -1,0 +1,1932 @@
+{
+  "n_singletons": 24920407,
+  "dual_track": {
+    "clean": {
+      "auc_pr": 0.18096689022805337,
+      "auc_roc": 0.6590077792833655
+    },
+    "leakage": {
+      "auc_pr": 0.7615293790188999,
+      "auc_roc": 0.9394086192616777
+    }
+  },
+  "train_rows_used": 5000000,
+  "train_note": "clean/leakage tracks trained on a stratified cap of 5,000,000 dev_train rows (full dev_train was 10,466,570); held-out scoring used the full held_out_final partition.",
+  "univariate_auc": [
+    {
+      "feature": "medical_risk_count",
+      "univariate_auc": 0.5703655145062373
+    },
+    {
+      "feature": "rf_ppterm",
+      "univariate_auc": 0.5437373686178285
+    },
+    {
+      "feature": "bmi",
+      "univariate_auc": 0.5432519306526726
+    },
+    {
+      "feature": "pay_1",
+      "univariate_auc": 0.5362849074036937
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Black",
+      "univariate_auc": 0.5330357984417335
+    },
+    {
+      "feature": "rf_cesar",
+      "univariate_auc": 0.5236907044320739
+    },
+    {
+      "feature": "rf_phype",
+      "univariate_auc": 0.5213654956574214
+    },
+    {
+      "feature": "mager",
+      "univariate_auc": 0.5159108116132037
+    },
+    {
+      "feature": "age_bracket",
+      "univariate_auc": 0.5151107765214458
+    },
+    {
+      "feature": "priorlive",
+      "univariate_auc": 0.5143092105840295
+    },
+    {
+      "feature": "cig_0",
+      "univariate_auc": 0.5142233224666561
+    },
+    {
+      "feature": "wic",
+      "univariate_auc": 0.5140460515512749
+    },
+    {
+      "feature": "race_education_NH Black_edu3",
+      "univariate_auc": 0.514018735486573
+    },
+    {
+      "feature": "rf_pdiab",
+      "univariate_auc": 0.5127608436640272
+    },
+    {
+      "feature": "race_education_NH Black_edu4",
+      "univariate_auc": 0.5076461419956526
+    },
+    {
+      "feature": "priordead",
+      "univariate_auc": 0.5059657298257694
+    },
+    {
+      "feature": "race_education_NH Black_edu2",
+      "univariate_auc": 0.5051828864783815
+    },
+    {
+      "feature": "race_education_NH White_edu2",
+      "univariate_auc": 0.5033677739657934
+    },
+    {
+      "feature": "race_education_NH Black_edu5",
+      "univariate_auc": 0.5026317070069403
+    },
+    {
+      "feature": "race_education_Hispanic_edu2",
+      "univariate_auc": 0.5023996190924643
+    },
+    {
+      "feature": "race_education_NH White_edu3",
+      "univariate_auc": 0.5022458858563617
+    },
+    {
+      "feature": "race_education_NH Black_edu6",
+      "univariate_auc": 0.5016591269644545
+    },
+    {
+      "feature": "mother_race_ethnicity_Hispanic",
+      "univariate_auc": 0.5012306907543086
+    },
+    {
+      "feature": "race_education_Hispanic_edu1",
+      "univariate_auc": 0.5010279089159815
+    },
+    {
+      "feature": "mother_race_ethnicity_NH AIAN",
+      "univariate_auc": 0.5009719550208309
+    },
+    {
+      "feature": "race_education_NH Black_edu7",
+      "univariate_auc": 0.5008967669775962
+    },
+    {
+      "feature": "race_education_Hispanic_edu3",
+      "univariate_auc": 0.5008745509723196
+    },
+    {
+      "feature": "race_education_UNK_eduUNK",
+      "univariate_auc": 0.5007491229604262
+    },
+    {
+      "feature": "race_education_NH Black_eduUNK",
+      "univariate_auc": 0.5006706340517832
+    },
+    {
+      "feature": "mother_race_ethnicity_null",
+      "univariate_auc": 0.5006596460151852
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Multiracial",
+      "univariate_auc": 0.5005744267762122
+    },
+    {
+      "feature": "race_education_NH White_eduUNK",
+      "univariate_auc": 0.5005012503001428
+    },
+    {
+      "feature": "pay_null",
+      "univariate_auc": 0.5004615929703603
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu3",
+      "univariate_auc": 0.5004181813599489
+    },
+    {
+      "feature": "pay_8",
+      "univariate_auc": 0.5004117460256979
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu2",
+      "univariate_auc": 0.5004077627010248
+    },
+    {
+      "feature": "mother_race_ethnicity_NH NHOPI",
+      "univariate_auc": 0.5003844111438209
+    },
+    {
+      "feature": "race_education_Hispanic_edu4",
+      "univariate_auc": 0.5003674596949289
+    },
+    {
+      "feature": "race_education_NH AIAN_edu3",
+      "univariate_auc": 0.5003435333100806
+    },
+    {
+      "feature": "race_education_NH AIAN_edu2",
+      "univariate_auc": 0.5003420100776154
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu4",
+      "univariate_auc": 0.5002964681121946
+    },
+    {
+      "feature": "race_education_Hispanic_eduUNK",
+      "univariate_auc": 0.5002914590627855
+    },
+    {
+      "feature": "race_education_NH Black_edu1",
+      "univariate_auc": 0.5001982340753176
+    },
+    {
+      "feature": "race_education_NH AIAN_edu4",
+      "univariate_auc": 0.5001727156825417
+    },
+    {
+      "feature": "race_education_NH Black_edu8",
+      "univariate_auc": 0.5001315654050348
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu2",
+      "univariate_auc": 0.5001212207904184
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu3",
+      "univariate_auc": 0.5001171785886961
+    },
+    {
+      "feature": "race_education_NH Asian_edu4",
+      "univariate_auc": 0.500109652710674
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu5",
+      "univariate_auc": 0.500088254165281
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu4",
+      "univariate_auc": 0.50007545997935
+    },
+    {
+      "feature": "race_education_UNK_edu3",
+      "univariate_auc": 0.5000623597559452
+    },
+    {
+      "feature": "race_education_UNK_edu2",
+      "univariate_auc": 0.5000622614532411
+    },
+    {
+      "feature": "pay_6",
+      "univariate_auc": 0.500060767435585
+    },
+    {
+      "feature": "race_education_NH AIAN_edu5",
+      "univariate_auc": 0.5000481333973934
+    },
+    {
+      "feature": "pay_4",
+      "univariate_auc": 0.5000470767208312
+    },
+    {
+      "feature": "race_education_NH AIAN_edu1",
+      "univariate_auc": 0.5000362442932398
+    },
+    {
+      "feature": "race_education_NH AIAN_eduUNK",
+      "univariate_auc": 0.5000341973965738
+    },
+    {
+      "feature": "race_education_NH Multiracial_eduUNK",
+      "univariate_auc": 0.5000283262907912
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu5",
+      "univariate_auc": 0.5000277935744244
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu1",
+      "univariate_auc": 0.500023351262011
+    },
+    {
+      "feature": "race_education_NH Asian_edu2",
+      "univariate_auc": 0.5000231141863158
+    },
+    {
+      "feature": "race_education_NH NHOPI_eduUNK",
+      "univariate_auc": 0.5000180149758918
+    },
+    {
+      "feature": "race_education_NH Asian_edu5",
+      "univariate_auc": 0.5000178081632464
+    },
+    {
+      "feature": "race_education_UNK_edu1",
+      "univariate_auc": 0.500011331572744
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu1",
+      "univariate_auc": 0.5000061133109971
+    },
+    {
+      "feature": "race_education_NH AIAN_edu8",
+      "univariate_auc": 0.5000023506898722
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu7",
+      "univariate_auc": 0.500001746601189
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu8",
+      "univariate_auc": 0.5000004063731895
+    },
+    {
+      "feature": "race_education_NH AIAN_edu7",
+      "univariate_auc": 0.4999998383016013
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu6",
+      "univariate_auc": 0.49999923899865056
+    },
+    {
+      "feature": "race_education_UNK_edu4",
+      "univariate_auc": 0.4999990211715133
+    },
+    {
+      "feature": "race_education_NH AIAN_edu6",
+      "univariate_auc": 0.49999293187191274
+    },
+    {
+      "feature": "race_education_UNK_edu5",
+      "univariate_auc": 0.49999192410412324
+    },
+    {
+      "feature": "race_education_UNK_edu8",
+      "univariate_auc": 0.4999733952238578
+    },
+    {
+      "feature": "race_education_NH Asian_edu1",
+      "univariate_auc": 0.49997045681181584
+    },
+    {
+      "feature": "race_education_NH Asian_eduUNK",
+      "univariate_auc": 0.4999683131606997
+    },
+    {
+      "feature": "race_education_NH Asian_edu3",
+      "univariate_auc": 0.49994877474309135
+    },
+    {
+      "feature": "race_education_UNK_edu7",
+      "univariate_auc": 0.4999409952754749
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu8",
+      "univariate_auc": 0.49992656630966814
+    },
+    {
+      "feature": "race_education_UNK_edu6",
+      "univariate_auc": 0.4998692344978596
+    },
+    {
+      "feature": "race_education_Hispanic_edu5",
+      "univariate_auc": 0.4998224695307784
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu7",
+      "univariate_auc": 0.49981983379343786
+    },
+    {
+      "feature": "race_education_Hispanic_edu8",
+      "univariate_auc": 0.4997915621076288
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu6",
+      "univariate_auc": 0.49958292073286864
+    },
+    {
+      "feature": "race_education_NH Asian_edu8",
+      "univariate_auc": 0.499426771973045
+    },
+    {
+      "feature": "race_education_NH White_edu1",
+      "univariate_auc": 0.49924962480381874
+    },
+    {
+      "feature": "race_education_Hispanic_edu7",
+      "univariate_auc": 0.4991362427749442
+    },
+    {
+      "feature": "race_education_NH White_edu4",
+      "univariate_auc": 0.49888350435602463
+    },
+    {
+      "feature": "pay_5",
+      "univariate_auc": 0.4987945296509019
+    },
+    {
+      "feature": "race_education_NH Asian_edu7",
+      "univariate_auc": 0.4983616230390596
+    },
+    {
+      "feature": "race_education_NH Asian_edu6",
+      "univariate_auc": 0.4982995273526461
+    },
+    {
+      "feature": "race_education_NH White_edu5",
+      "univariate_auc": 0.49812214923887443
+    },
+    {
+      "feature": "race_education_Hispanic_edu6",
+      "univariate_auc": 0.4975194186024773
+    },
+    {
+      "feature": "race_education_NH White_edu8",
+      "univariate_auc": 0.49699377774277126
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Asian",
+      "univariate_auc": 0.4961260421405938
+    },
+    {
+      "feature": "pay_3",
+      "univariate_auc": 0.49604990515602015
+    },
+    {
+      "feature": "race_education_NH White_edu7",
+      "univariate_auc": 0.4894765465987282
+    },
+    {
+      "feature": "first_trimester_care",
+      "univariate_auc": 0.4885412407157489
+    },
+    {
+      "feature": "race_education_NH White_edu6",
+      "univariate_auc": 0.4781765168447998
+    },
+    {
+      "feature": "pay_2",
+      "univariate_auc": 0.4678894746369098
+    },
+    {
+      "feature": "mother_race_ethnicity_NH White",
+      "univariate_auc": 0.46701702970731485
+    },
+    {
+      "feature": "married",
+      "univariate_auc": 0.45564207874934004
+    },
+    {
+      "feature": "meduc",
+      "univariate_auc": 0.4522939977314394
+    }
+  ],
+  "gain_importance": [
+    {
+      "feature": "rf_ppterm",
+      "gain": 2088361.0080718994
+    },
+    {
+      "feature": "medical_risk_count",
+      "gain": 741027.6249246597
+    },
+    {
+      "feature": "bmi",
+      "gain": 735526.6971149445
+    },
+    {
+      "feature": "priorlive",
+      "gain": 605595.6170768738
+    },
+    {
+      "feature": "rf_phype",
+      "gain": 534541.4572210312
+    },
+    {
+      "feature": "mager",
+      "gain": 515647.56561660767
+    },
+    {
+      "feature": "married",
+      "gain": 447387.7655162811
+    },
+    {
+      "feature": "meduc",
+      "gain": 377291.9269218445
+    },
+    {
+      "feature": "first_trimester_care",
+      "gain": 312811.81616687775
+    },
+    {
+      "feature": "rf_pdiab",
+      "gain": 291213.68313217163
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Black",
+      "gain": 262483.1604118347
+    },
+    {
+      "feature": "cig_0",
+      "gain": 174165.66494369507
+    },
+    {
+      "feature": "mother_race_ethnicity_NH White",
+      "gain": 142717.24197292328
+    },
+    {
+      "feature": "pay_3",
+      "gain": 106795.04770851135
+    },
+    {
+      "feature": "wic",
+      "gain": 94711.39949798584
+    },
+    {
+      "feature": "rf_cesar",
+      "gain": 91267.84984779358
+    },
+    {
+      "feature": "priordead",
+      "gain": 44064.10045719147
+    },
+    {
+      "feature": "pay_1",
+      "gain": 34327.49985790253
+    },
+    {
+      "feature": "pay_2",
+      "gain": 19629.750801086426
+    },
+    {
+      "feature": "mother_race_ethnicity_Hispanic",
+      "gain": 10836.844177246094
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Asian",
+      "gain": 7360.208211898804
+    },
+    {
+      "feature": "race_education_NH White_edu1",
+      "gain": 3540.957971572876
+    },
+    {
+      "feature": "mother_race_ethnicity_null",
+      "gain": 3186.399705886841
+    },
+    {
+      "feature": "race_education_NH Black_edu1",
+      "gain": 2858.0378847122192
+    },
+    {
+      "feature": "race_education_NH Asian_edu6",
+      "gain": 2495.76801776886
+    },
+    {
+      "feature": "race_education_NH White_edu2",
+      "gain": 2285.8472204208374
+    },
+    {
+      "feature": "race_education_NH White_edu3",
+      "gain": 2131.9726905822754
+    },
+    {
+      "feature": "pay_5",
+      "gain": 1951.383999824524
+    },
+    {
+      "feature": "race_education_NH Black_edu3",
+      "gain": 1929.277400970459
+    },
+    {
+      "feature": "race_education_NH Black_edu2",
+      "gain": 1819.1538934707642
+    },
+    {
+      "feature": "race_education_Hispanic_edu3",
+      "gain": 1556.3579940795898
+    },
+    {
+      "feature": "race_education_UNK_eduUNK",
+      "gain": 1551.4429025650024
+    },
+    {
+      "feature": "race_education_NH White_edu6",
+      "gain": 1472.1718864440918
+    },
+    {
+      "feature": "race_education_NH Asian_edu3",
+      "gain": 1215.1879081726074
+    },
+    {
+      "feature": "pay_8",
+      "gain": 1208.0110082626343
+    },
+    {
+      "feature": "race_education_NH White_edu4",
+      "gain": 1080.5091104507446
+    },
+    {
+      "feature": "mother_race_ethnicity_NH NHOPI",
+      "gain": 1059.7731037139893
+    },
+    {
+      "feature": "race_education_NH Asian_edu7",
+      "gain": 926.6117134094238
+    },
+    {
+      "feature": "race_education_NH White_eduUNK",
+      "gain": 917.2663993835449
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Multiracial",
+      "gain": 907.541296005249
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu7",
+      "gain": 809.8937931060791
+    },
+    {
+      "feature": "mother_race_ethnicity_NH AIAN",
+      "gain": 808.9647960662842
+    },
+    {
+      "feature": "race_education_Hispanic_edu4",
+      "gain": 710.7716903686523
+    },
+    {
+      "feature": "race_education_Hispanic_edu6",
+      "gain": 633.1522026062012
+    },
+    {
+      "feature": "pay_null",
+      "gain": 604.0056009292603
+    },
+    {
+      "feature": "race_education_NH White_edu5",
+      "gain": 575.5382022857666
+    },
+    {
+      "feature": "race_education_NH Black_edu4",
+      "gain": 527.2228031158447
+    },
+    {
+      "feature": "race_education_NH Asian_edu4",
+      "gain": 518.9294538497925
+    },
+    {
+      "feature": "race_education_NH White_edu7",
+      "gain": 490.32111167907715
+    },
+    {
+      "feature": "race_education_NH Asian_edu2",
+      "gain": 480.7041988372803
+    },
+    {
+      "feature": "race_education_NH AIAN_edu2",
+      "gain": 469.87540435791016
+    },
+    {
+      "feature": "race_education_Hispanic_edu1",
+      "gain": 452.59349250793457
+    },
+    {
+      "feature": "race_education_UNK_edu7",
+      "gain": 410.07896423339844
+    },
+    {
+      "feature": "race_education_Hispanic_edu2",
+      "gain": 352.9111976623535
+    },
+    {
+      "feature": "race_education_NH Asian_edu5",
+      "gain": 347.869345664978
+    },
+    {
+      "feature": "race_education_NH AIAN_eduUNK",
+      "gain": 306.7007989883423
+    },
+    {
+      "feature": "race_education_Hispanic_edu7",
+      "gain": 295.9185028076172
+    },
+    {
+      "feature": "pay_6",
+      "gain": 284.4713020324707
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu1",
+      "gain": 284.07680225372314
+    },
+    {
+      "feature": "race_education_NH White_edu8",
+      "gain": 264.4617042541504
+    },
+    {
+      "feature": "race_education_NH Black_edu7",
+      "gain": 247.27119636535645
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu5",
+      "gain": 240.70940017700195
+    },
+    {
+      "feature": "race_education_NH Black_edu8",
+      "gain": 227.5857982635498
+    },
+    {
+      "feature": "race_education_NH NHOPI_eduUNK",
+      "gain": 216.24220943450928
+    },
+    {
+      "feature": "race_education_NH Black_edu6",
+      "gain": 201.4528980255127
+    },
+    {
+      "feature": "race_education_UNK_edu6",
+      "gain": 194.56819915771484
+    },
+    {
+      "feature": "race_education_Hispanic_edu5",
+      "gain": 185.15300178527832
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu8",
+      "gain": 179.68430137634277
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu6",
+      "gain": 170.0841989517212
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu2",
+      "gain": 167.85140228271484
+    },
+    {
+      "feature": "race_education_NH Black_edu5",
+      "gain": 163.48810195922852
+    },
+    {
+      "feature": "race_education_NH Multiracial_eduUNK",
+      "gain": 150.51230239868164
+    },
+    {
+      "feature": "race_education_NH Asian_edu8",
+      "gain": 149.95860290527344
+    },
+    {
+      "feature": "race_education_UNK_edu4",
+      "gain": 147.86389923095703
+    },
+    {
+      "feature": "race_education_NH Asian_eduUNK",
+      "gain": 145.24180126190186
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu4",
+      "gain": 113.15899658203125
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu3",
+      "gain": 105.13329887390137
+    },
+    {
+      "feature": "race_education_NH Black_eduUNK",
+      "gain": 101.02849864959717
+    },
+    {
+      "feature": "race_education_NH AIAN_edu1",
+      "gain": 77.77939987182617
+    },
+    {
+      "feature": "race_education_Hispanic_eduUNK",
+      "gain": 76.59159851074219
+    },
+    {
+      "feature": "race_education_NH AIAN_edu3",
+      "gain": 74.12409973144531
+    },
+    {
+      "feature": "race_education_NH AIAN_edu8",
+      "gain": 60.34836959838867
+    },
+    {
+      "feature": "race_education_NH Asian_edu1",
+      "gain": 54.52799987792969
+    },
+    {
+      "feature": "race_education_Hispanic_edu8",
+      "gain": 35.08190155029297
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu3",
+      "gain": 21.033700942993164
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu2",
+      "gain": 16.91160011291504
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu6",
+      "gain": 14.029899597167969
+    },
+    {
+      "feature": "age_bracket",
+      "gain": 0.0
+    },
+    {
+      "feature": "pay_4",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_NH AIAN_edu4",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_NH AIAN_edu5",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_NH AIAN_edu6",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_NH AIAN_edu7",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu1",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu4",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu5",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu7",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu8",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_UNK_edu1",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_UNK_edu2",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_UNK_edu3",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_UNK_edu5",
+      "gain": 0.0
+    },
+    {
+      "feature": "race_education_UNK_edu8",
+      "gain": 0.0
+    }
+  ],
+  "correlation": [
+    {
+      "feature": "rf_ppterm",
+      "corr": 0.12958584637542916
+    },
+    {
+      "feature": "medical_risk_count",
+      "corr": 0.11726379788118735
+    },
+    {
+      "feature": "rf_phype",
+      "corr": 0.07438619358158706
+    },
+    {
+      "feature": "rf_pdiab",
+      "corr": 0.06833531673973364
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Black",
+      "corr": 0.05340299481151315
+    },
+    {
+      "feature": "married",
+      "corr": -0.051004319900902505
+    },
+    {
+      "feature": "meduc",
+      "corr": -0.04665237129385323
+    },
+    {
+      "feature": "bmi",
+      "corr": 0.04570355929184178
+    },
+    {
+      "feature": "pay_1",
+      "corr": 0.04126360418124911
+    },
+    {
+      "feature": "mother_race_ethnicity_NH White",
+      "corr": -0.036923225549406295
+    },
+    {
+      "feature": "rf_cesar",
+      "corr": 0.0367401833936694
+    },
+    {
+      "feature": "pay_2",
+      "corr": -0.03594564122381077
+    },
+    {
+      "feature": "race_education_NH Black_edu3",
+      "corr": 0.03551489632774419
+    },
+    {
+      "feature": "race_education_NH White_edu6",
+      "corr": -0.03522076770764517
+    },
+    {
+      "feature": "cig_0",
+      "corr": 0.027146619536691573
+    },
+    {
+      "feature": "priorlive",
+      "corr": 0.026900819214728974
+    },
+    {
+      "feature": "race_education_NH Black_edu2",
+      "corr": 0.02440289823350288
+    },
+    {
+      "feature": "race_education_NH Black_edu4",
+      "corr": 0.024129425392160203
+    },
+    {
+      "feature": "race_education_NH White_edu7",
+      "corr": -0.02364450899156489
+    },
+    {
+      "feature": "priordead",
+      "corr": 0.021710783421958077
+    },
+    {
+      "feature": "mager",
+      "corr": 0.017007996865800873
+    },
+    {
+      "feature": "wic",
+      "corr": 0.01679755066356138
+    },
+    {
+      "feature": "age_bracket",
+      "corr": 0.016077906246625806
+    },
+    {
+      "feature": "first_trimester_care",
+      "corr": -0.015130184328218067
+    },
+    {
+      "feature": "race_education_NH Black_edu5",
+      "corr": 0.014059308135314192
+    },
+    {
+      "feature": "race_education_NH White_edu8",
+      "corr": -0.012259959140117781
+    },
+    {
+      "feature": "race_education_NH White_edu2",
+      "corr": 0.011913772735232194
+    },
+    {
+      "feature": "pay_3",
+      "corr": -0.010832038575902226
+    },
+    {
+      "feature": "race_education_NH Black_eduUNK",
+      "corr": 0.010331650286879752
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Asian",
+      "corr": -0.009017678962938687
+    },
+    {
+      "feature": "race_education_Hispanic_edu6",
+      "corr": -0.008234908940022514
+    },
+    {
+      "feature": "race_education_NH Asian_edu7",
+      "corr": -0.007747524789392254
+    },
+    {
+      "feature": "race_education_NH Black_edu6",
+      "corr": 0.007173832240955182
+    },
+    {
+      "feature": "race_education_Hispanic_edu2",
+      "corr": 0.007072186628849774
+    },
+    {
+      "feature": "race_education_NH Asian_edu6",
+      "corr": -0.0065925814525843816
+    },
+    {
+      "feature": "mother_race_ethnicity_NH AIAN",
+      "corr": 0.0064296149647820044
+    },
+    {
+      "feature": "pay_5",
+      "corr": -0.005971416996225862
+    },
+    {
+      "feature": "race_education_UNK_eduUNK",
+      "corr": 0.005823385467972514
+    },
+    {
+      "feature": "race_education_NH Black_edu7",
+      "corr": 0.005738779287593439
+    },
+    {
+      "feature": "race_education_NH AIAN_edu2",
+      "corr": 0.0053385933621299675
+    },
+    {
+      "feature": "race_education_NH White_eduUNK",
+      "corr": 0.005004577704136987
+    },
+    {
+      "feature": "race_education_Hispanic_edu7",
+      "corr": -0.004990627858883051
+    },
+    {
+      "feature": "race_education_NH White_edu5",
+      "corr": -0.0049556356510998675
+    },
+    {
+      "feature": "race_education_NH White_edu1",
+      "corr": -0.004941730792072667
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu2",
+      "corr": 0.0047688046124700015
+    },
+    {
+      "feature": "race_education_NH Asian_edu8",
+      "corr": -0.004378115814040099
+    },
+    {
+      "feature": "mother_race_ethnicity_NH NHOPI",
+      "corr": 0.00414948902185738
+    },
+    {
+      "feature": "race_education_NH White_edu3",
+      "corr": 0.004061957092469893
+    },
+    {
+      "feature": "race_education_Hispanic_edu1",
+      "corr": 0.00404694062927123
+    },
+    {
+      "feature": "mother_race_ethnicity_null",
+      "corr": 0.0038659118617493785
+    },
+    {
+      "feature": "race_education_NH AIAN_edu3",
+      "corr": 0.003691778466371308
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu6",
+      "corr": -0.003641803562481869
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu2",
+      "corr": 0.003071861941661513
+    },
+    {
+      "feature": "pay_null",
+      "corr": 0.003053188397860523
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu3",
+      "corr": 0.0028832587941997794
+    },
+    {
+      "feature": "race_education_UNK_edu6",
+      "corr": -0.002517683622602499
+    },
+    {
+      "feature": "race_education_NH AIAN_eduUNK",
+      "corr": 0.0024863060855655635
+    },
+    {
+      "feature": "race_education_Hispanic_eduUNK",
+      "corr": 0.002466401072949962
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu7",
+      "corr": -0.0024386069034107263
+    },
+    {
+      "feature": "race_education_NH Black_edu1",
+      "corr": 0.0024325218473284925
+    },
+    {
+      "feature": "race_education_Hispanic_edu8",
+      "corr": -0.002347151444301461
+    },
+    {
+      "feature": "race_education_NH AIAN_edu4",
+      "corr": 0.0023130913602337957
+    },
+    {
+      "feature": "race_education_NH White_edu4",
+      "corr": -0.0022002218187825604
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu4",
+      "corr": 0.0021829679654212296
+    },
+    {
+      "feature": "race_education_NH AIAN_edu1",
+      "corr": 0.0021251509492583517
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Multiracial",
+      "corr": 0.0021190641369146558
+    },
+    {
+      "feature": "pay_8",
+      "corr": 0.002048827354296658
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu3",
+      "corr": 0.002012425647347453
+    },
+    {
+      "feature": "race_education_UNK_edu2",
+      "corr": 0.001809513449412549
+    },
+    {
+      "feature": "race_education_NH Black_edu8",
+      "corr": 0.001781467165182662
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu4",
+      "corr": 0.0017726542943913104
+    },
+    {
+      "feature": "race_education_Hispanic_edu3",
+      "corr": 0.0017665711714620533
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu8",
+      "corr": -0.0016944638033708995
+    },
+    {
+      "feature": "race_education_UNK_edu7",
+      "corr": -0.001611088029753212
+    },
+    {
+      "feature": "mother_race_ethnicity_Hispanic",
+      "corr": 0.0015869881577204208
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu1",
+      "corr": 0.0014400338384502305
+    },
+    {
+      "feature": "race_education_NH NHOPI_eduUNK",
+      "corr": 0.001278970123866793
+    },
+    {
+      "feature": "race_education_UNK_edu8",
+      "corr": -0.001258573124927333
+    },
+    {
+      "feature": "race_education_NH Multiracial_eduUNK",
+      "corr": 0.0012052481977318195
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu5",
+      "corr": 0.0011683146887398828
+    },
+    {
+      "feature": "race_education_NH AIAN_edu5",
+      "corr": 0.0011379306935320663
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu5",
+      "corr": 0.0011171460258028601
+    },
+    {
+      "feature": "race_education_UNK_edu3",
+      "corr": 0.0010555211471617728
+    },
+    {
+      "feature": "pay_4",
+      "corr": 0.0009902963133317493
+    },
+    {
+      "feature": "race_education_Hispanic_edu4",
+      "corr": 0.0009734341707634999
+    },
+    {
+      "feature": "race_education_NH Asian_edu4",
+      "corr": 0.0008194344298995493
+    },
+    {
+      "feature": "race_education_Hispanic_edu5",
+      "corr": -0.0007592366284018962
+    },
+    {
+      "feature": "race_education_UNK_edu1",
+      "corr": 0.0005828680194276379
+    },
+    {
+      "feature": "race_education_NH Asian_eduUNK",
+      "corr": -0.0005445390379508054
+    },
+    {
+      "feature": "race_education_NH Asian_edu1",
+      "corr": -0.0004748712054343164
+    },
+    {
+      "feature": "pay_6",
+      "corr": 0.00038305154238580026
+    },
+    {
+      "feature": "race_education_NH Asian_edu3",
+      "corr": -0.00034272033397066766
+    },
+    {
+      "feature": "race_education_NH Asian_edu2",
+      "corr": 0.00028228905372615717
+    },
+    {
+      "feature": "race_education_UNK_edu5",
+      "corr": -0.00025976430377762567
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu1",
+      "corr": 0.00020651508521369406
+    },
+    {
+      "feature": "race_education_NH AIAN_edu8",
+      "corr": 0.0002039641874969537
+    },
+    {
+      "feature": "race_education_NH AIAN_edu6",
+      "corr": -0.0001720942597863127
+    },
+    {
+      "feature": "race_education_NH Asian_edu5",
+      "corr": 0.00016565034173820283
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu7",
+      "corr": 0.0001373225967439254
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu8",
+      "corr": 7.181185531159921e-05
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu6",
+      "corr": -3.058849234278937e-05
+    },
+    {
+      "feature": "race_education_UNK_edu4",
+      "corr": -2.0696135421779936e-05
+    },
+    {
+      "feature": "race_education_NH AIAN_edu7",
+      "corr": -6.896872384697508e-06
+    }
+  ],
+  "mutual_info": [
+    {
+      "feature": "first_trimester_care",
+      "mi": 0.16509165825694638
+    },
+    {
+      "feature": "married",
+      "mi": 0.15275957484652047
+    },
+    {
+      "feature": "mother_race_ethnicity_NH White",
+      "mi": 0.12228431673638429
+    },
+    {
+      "feature": "pay_2",
+      "mi": 0.12218324110498546
+    },
+    {
+      "feature": "pay_1",
+      "mi": 0.08523381705118616
+    },
+    {
+      "feature": "wic",
+      "mi": 0.0541213854420004
+    },
+    {
+      "feature": "age_bracket",
+      "mi": 0.04488259579896492
+    },
+    {
+      "feature": "mother_race_ethnicity_Hispanic",
+      "mi": 0.03478649856801219
+    },
+    {
+      "feature": "meduc",
+      "mi": 0.034258484679950074
+    },
+    {
+      "feature": "priorlive",
+      "mi": 0.025807832604843428
+    },
+    {
+      "feature": "medical_risk_count",
+      "mi": 0.023502631556320486
+    },
+    {
+      "feature": "rf_cesar",
+      "mi": 0.013465391727314868
+    },
+    {
+      "feature": "race_education_NH White_edu6",
+      "mi": 0.012265041506008378
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Black",
+      "mi": 0.011352277983295078
+    },
+    {
+      "feature": "mager",
+      "mi": 0.010538033408653114
+    },
+    {
+      "feature": "rf_ppterm",
+      "mi": 0.006943301480654807
+    },
+    {
+      "feature": "race_education_NH White_edu3",
+      "mi": 0.005987945436997988
+    },
+    {
+      "feature": "race_education_NH White_edu7",
+      "mi": 0.005500343963844578
+    },
+    {
+      "feature": "race_education_NH White_edu4",
+      "mi": 0.004113334749191955
+    },
+    {
+      "feature": "race_education_Hispanic_edu3",
+      "mi": 0.003987894274903203
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Asian",
+      "mi": 0.003952189904646852
+    },
+    {
+      "feature": "race_education_NH Black_edu3",
+      "mi": 0.0036652743946932187
+    },
+    {
+      "feature": "bmi",
+      "mi": 0.003202006050808004
+    },
+    {
+      "feature": "rf_phype",
+      "mi": 0.002878705932053194
+    },
+    {
+      "feature": "pay_3",
+      "mi": 0.0026702018501474356
+    },
+    {
+      "feature": "race_education_Hispanic_edu4",
+      "mi": 0.002247785227784904
+    },
+    {
+      "feature": "race_education_NH White_edu5",
+      "mi": 0.002098808567628785
+    },
+    {
+      "feature": "race_education_Hispanic_edu2",
+      "mi": 0.0019123994352718832
+    },
+    {
+      "feature": "rf_pdiab",
+      "mi": 0.0018380434452640593
+    },
+    {
+      "feature": "race_education_NH Black_edu4",
+      "mi": 0.0013124452375659068
+    },
+    {
+      "feature": "race_education_Hispanic_edu6",
+      "mi": 0.00122576637002636
+    },
+    {
+      "feature": "race_education_NH White_edu2",
+      "mi": 0.0010237313062482212
+    },
+    {
+      "feature": "cig_0",
+      "mi": 0.0006514118951796988
+    },
+    {
+      "feature": "race_education_Hispanic_edu1",
+      "mi": 0.0005908978706414825
+    },
+    {
+      "feature": "mother_race_ethnicity_null",
+      "mi": 0.000577671441489569
+    },
+    {
+      "feature": "mother_race_ethnicity_NH Multiracial",
+      "mi": 0.0005752813856969574
+    },
+    {
+      "feature": "priordead",
+      "mi": 0.0005743549099013201
+    },
+    {
+      "feature": "race_education_NH Black_edu5",
+      "mi": 0.0005511292158169034
+    },
+    {
+      "feature": "race_education_NH Asian_edu7",
+      "mi": 0.0005357464636990272
+    },
+    {
+      "feature": "race_education_NH Asian_edu3",
+      "mi": 0.0004729740471849375
+    },
+    {
+      "feature": "race_education_Hispanic_edu5",
+      "mi": 0.00041420772323430555
+    },
+    {
+      "feature": "race_education_NH White_edu8",
+      "mi": 0.00040575193839087476
+    },
+    {
+      "feature": "mother_race_ethnicity_NH AIAN",
+      "mi": 0.00038951113117002834
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu4",
+      "mi": 0.0003823043832256179
+    },
+    {
+      "feature": "race_education_NH Asian_edu6",
+      "mi": 0.0003459144964144123
+    },
+    {
+      "feature": "race_education_NH Black_eduUNK",
+      "mi": 0.00034527204222412067
+    },
+    {
+      "feature": "race_education_NH Asian_edu4",
+      "mi": 0.0003046244234261586
+    },
+    {
+      "feature": "race_education_NH Black_edu6",
+      "mi": 0.0002947418303234084
+    },
+    {
+      "feature": "race_education_NH Asian_edu8",
+      "mi": 0.000271759864257648
+    },
+    {
+      "feature": "race_education_NH AIAN_edu6",
+      "mi": 0.000270870208090912
+    },
+    {
+      "feature": "race_education_Hispanic_eduUNK",
+      "mi": 0.0002649654546602598
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu2",
+      "mi": 0.0002552454660758041
+    },
+    {
+      "feature": "race_education_UNK_eduUNK",
+      "mi": 0.00024516416190056844
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu6",
+      "mi": 0.00023700830742567902
+    },
+    {
+      "feature": "race_education_NH AIAN_edu4",
+      "mi": 0.0002165238281692794
+    },
+    {
+      "feature": "mother_race_ethnicity_NH NHOPI",
+      "mi": 0.00021312517663285568
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu5",
+      "mi": 0.00018225190494303156
+    },
+    {
+      "feature": "race_education_UNK_edu6",
+      "mi": 0.00017724807210295346
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu3",
+      "mi": 0.0001701417453332521
+    },
+    {
+      "feature": "race_education_NH White_eduUNK",
+      "mi": 0.00016414559622024427
+    },
+    {
+      "feature": "race_education_UNK_edu4",
+      "mi": 0.00015529802424563144
+    },
+    {
+      "feature": "pay_null",
+      "mi": 0.0001544683366516697
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu5",
+      "mi": 0.0001514511969928911
+    },
+    {
+      "feature": "race_education_NH Black_edu2",
+      "mi": 0.00014974675603030008
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu4",
+      "mi": 0.00014643860584517832
+    },
+    {
+      "feature": "race_education_UNK_edu3",
+      "mi": 0.00013687399583983684
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu6",
+      "mi": 0.00013304152912185785
+    },
+    {
+      "feature": "race_education_UNK_edu8",
+      "mi": 8.182823071645196e-05
+    },
+    {
+      "feature": "race_education_NH Black_edu8",
+      "mi": 5.3640833752588435e-05
+    },
+    {
+      "feature": "pay_6",
+      "mi": 4.159217747612409e-05
+    },
+    {
+      "feature": "race_education_NH AIAN_edu5",
+      "mi": 2.3311875215981104e-05
+    },
+    {
+      "feature": "race_education_NH AIAN_edu2",
+      "mi": 1.89678323037068e-05
+    },
+    {
+      "feature": "pay_8",
+      "mi": 1.683449497846823e-05
+    },
+    {
+      "feature": "pay_4",
+      "mi": 0.0
+    },
+    {
+      "feature": "pay_5",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_Hispanic_edu7",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_Hispanic_edu8",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH AIAN_edu1",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH AIAN_edu3",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH AIAN_edu7",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH AIAN_edu8",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH AIAN_eduUNK",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Asian_edu1",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Asian_edu2",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Asian_edu5",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Asian_eduUNK",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Black_edu1",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Black_edu7",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu1",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu2",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu3",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu7",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Multiracial_edu8",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH Multiracial_eduUNK",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu1",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu7",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH NHOPI_edu8",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH NHOPI_eduUNK",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_NH White_edu1",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_UNK_edu1",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_UNK_edu2",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_UNK_edu5",
+      "mi": 0.0
+    },
+    {
+      "feature": "race_education_UNK_edu7",
+      "mi": 0.0
+    }
+  ],
+  "mi_subsample_rows": 1000000,
+  "pca": {
+    "explained_variance_ratio": [
+      0.04578964218244829,
+      0.02623751642860481,
+      0.023718975776239562,
+      0.021181061825645286,
+      0.02017641139248658,
+      0.019506803030494603,
+      0.01943863433158262,
+      0.017992349792180805,
+      0.01661589008442158,
+      0.009841139056930993
+    ],
+    "cumulative": [
+      0.04578964218244829,
+      0.0720271586110531,
+      0.09574613438729267,
+      0.11692719621293796,
+      0.13710360760542453,
+      0.15661041063591913,
+      0.17604904496750173,
+      0.19404139475968255,
+      0.21065728484410412,
+      0.2204984239010351
+    ],
+    "loadings": {
+      "PC1": [
+        {
+          "feature": "meduc",
+          "loading": 0.36610435173070544
+        },
+        {
+          "feature": "pay_2",
+          "loading": 0.35210552365517345
+        },
+        {
+          "feature": "pay_1",
+          "loading": -0.3460643530846649
+        },
+        {
+          "feature": "wic",
+          "loading": -0.28546775408190156
+        },
+        {
+          "feature": "married",
+          "loading": 0.2622294508753321
+        },
+        {
+          "feature": "mager",
+          "loading": 0.2600854265609084
+        },
+        {
+          "feature": "age_bracket",
+          "loading": 0.2562799593691653
+        },
+        {
+          "feature": "mother_race_ethnicity_NH White",
+          "loading": 0.23900140235860332
+        }
+      ],
+      "PC2": [
+        {
+          "feature": "medical_risk_count",
+          "loading": 0.39921449034322326
+        },
+        {
+          "feature": "mager",
+          "loading": 0.3632113332800788
+        },
+        {
+          "feature": "age_bracket",
+          "loading": 0.36038594266116425
+        },
+        {
+          "feature": "rf_cesar",
+          "loading": 0.337740573055795
+        },
+        {
+          "feature": "priorlive",
+          "loading": 0.30085765154667127
+        },
+        {
+          "feature": "mother_race_ethnicity_NH White",
+          "loading": -0.2950688115380488
+        },
+        {
+          "feature": "rf_ppterm",
+          "loading": 0.19823655983038116
+        },
+        {
+          "feature": "race_education_NH White_edu3",
+          "loading": -0.16613854262285313
+        }
+      ],
+      "PC3": [
+        {
+          "feature": "mother_race_ethnicity_Hispanic",
+          "loading": 0.40636319775678464
+        },
+        {
+          "feature": "mother_race_ethnicity_NH White",
+          "loading": -0.3488441739339807
+        },
+        {
+          "feature": "mother_race_ethnicity_NH Asian",
+          "loading": 0.2771042906722707
+        },
+        {
+          "feature": "medical_risk_count",
+          "loading": -0.269603895075384
+        },
+        {
+          "feature": "race_education_Hispanic_edu3",
+          "loading": 0.20639175795764442
+        },
+        {
+          "feature": "rf_cesar",
+          "loading": -0.19816876322883864
+        },
+        {
+          "feature": "mother_race_ethnicity_NH Black",
+          "loading": -0.19305153124686072
+        },
+        {
+          "feature": "race_education_NH White_edu3",
+          "loading": -0.18741794858229568
+        }
+      ]
+    }
+  },
+  "clusters": [
+    {
+      "cluster": 0,
+      "size": 11994818,
+      "preterm_rate": 0.09919491900585736,
+      "race_mix": [
+        {
+          "race": "Hispanic",
+          "share": 0.3929313475202375
+        },
+        {
+          "race": "NH White",
+          "share": 0.31992515434581836
+        },
+        {
+          "race": "NH Black",
+          "share": 0.22551838635650828
+        }
+      ],
+      "feature_means": {
+        "mager": 26.697352056529745,
+        "bmi": 30.380724580933745,
+        "medical_risk_count": 0.24700316419974025
+      }
+    },
+    {
+      "cluster": 1,
+      "size": 8804796,
+      "preterm_rate": 0.07656236442048174,
+      "race_mix": [
+        {
+          "race": "NH White",
+          "share": 0.5769930387938573
+        },
+        {
+          "race": "Hispanic",
+          "share": 0.15851747161433383
+        },
+        {
+          "race": "NH Asian",
+          "share": 0.13917392293927083
+        }
+      ],
+      "feature_means": {
+        "mager": 32.02820485562641,
+        "bmi": 28.164952160765775,
+        "medical_risk_count": 0.21791850714088096
+      }
+    },
+    {
+      "cluster": 2,
+      "size": 196073,
+      "preterm_rate": 0.08688090660111285,
+      "race_mix": [
+        {
+          "race": "NH White",
+          "share": 0.4130859424806067
+        },
+        {
+          "race": "Hispanic",
+          "share": 0.35070101441809937
+        },
+        {
+          "race": "NH Black",
+          "share": 0.13358800038761073
+        }
+      ],
+      "feature_means": {
+        "mager": 28.604560546327132,
+        "bmi": 29.595648557094936,
+        "medical_risk_count": 0.2377787864723853
+      }
+    },
+    {
+      "cluster": 3,
+      "size": 317500,
+      "preterm_rate": 0.09064251968503936,
+      "race_mix": [
+        {
+          "race": "NH White",
+          "share": 0.45648818897637794
+        },
+        {
+          "race": "Hispanic",
+          "share": 0.30657322834645667
+        },
+        {
+          "race": "NH Black",
+          "share": 0.13114015748031496
+        }
+      ],
+      "feature_means": {
+        "mager": 28.909181102362204,
+        "bmi": 29.01614834442642,
+        "medical_risk_count": 0.2256976377952756
+      }
+    },
+    {
+      "cluster": 4,
+      "size": 175646,
+      "preterm_rate": 0.08451658449381141,
+      "race_mix": [
+        {
+          "race": "NH Asian",
+          "share": 1.0
+        }
+      ],
+      "feature_means": {
+        "mager": 30.055150700841466,
+        "bmi": 26.54531444701606,
+        "medical_risk_count": 0.22871571228493676
+      }
+    },
+    {
+      "cluster": 5,
+      "size": 3431574,
+      "preterm_rate": 0.06118387655344166,
+      "race_mix": [
+        {
+          "race": "NH White",
+          "share": 1.0
+        }
+      ],
+      "feature_means": {
+        "mager": 31.558109777029433,
+        "bmi": 27.27833799127996,
+        "medical_risk_count": 0.18812387551601684
+      }
+    }
+  ]
+}

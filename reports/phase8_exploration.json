@@ -1,0 +1,729 @@
+{
+  "temporal": {
+    "overall_by_year": [
+      {
+        "birth_year": 2019,
+        "n": 353381,
+        "rate": 0.08820508176727102
+      },
+      {
+        "birth_year": 2020,
+        "n": 354607,
+        "rate": 0.08774220475061124
+      },
+      {
+        "birth_year": 2021,
+        "n": 354737,
+        "rate": 0.08948883257173625
+      },
+      {
+        "birth_year": 2022,
+        "n": 354560,
+        "rate": 0.08955324909747292
+      },
+      {
+        "birth_year": 2023,
+        "n": 283710,
+        "rate": 0.09099784991716894
+      },
+      {
+        "birth_year": 2024,
+        "n": 284093,
+        "rate": 0.08976285934535522
+      }
+    ],
+    "by_race_year": [
+      {
+        "birth_year": 2019,
+        "mother_race_ethnicity": "Hispanic",
+        "n": 83681,
+        "rate": 0.08614858809048649
+      },
+      {
+        "birth_year": 2019,
+        "mother_race_ethnicity": "NH AIAN",
+        "n": 4757,
+        "rate": 0.1156190876602901
+      },
+      {
+        "birth_year": 2019,
+        "mother_race_ethnicity": "NH Asian",
+        "n": 17888,
+        "rate": 0.0789355992844365
+      },
+      {
+        "birth_year": 2019,
+        "mother_race_ethnicity": "NH Black",
+        "n": 55957,
+        "rate": 0.1274550100970388
+      },
+      {
+        "birth_year": 2019,
+        "mother_race_ethnicity": "NH Multiracial",
+        "n": 8038,
+        "rate": 0.08982333913908933
+      },
+      {
+        "birth_year": 2019,
+        "mother_race_ethnicity": "NH NHOPI",
+        "n": 1204,
+        "rate": 0.09800664451827243
+      },
+      {
+        "birth_year": 2019,
+        "mother_race_ethnicity": "NH White",
+        "n": 179639,
+        "rate": 0.07678733459883433
+      },
+      {
+        "birth_year": 2020,
+        "mother_race_ethnicity": "Hispanic",
+        "n": 85913,
+        "rate": 0.08542362622653149
+      },
+      {
+        "birth_year": 2020,
+        "mother_race_ethnicity": "NH AIAN",
+        "n": 4389,
+        "rate": 0.1139211665527455
+      },
+      {
+        "birth_year": 2020,
+        "mother_race_ethnicity": "NH Asian",
+        "n": 17827,
+        "rate": 0.07595220732596623
+      },
+      {
+        "birth_year": 2020,
+        "mother_race_ethnicity": "NH Black",
+        "n": 55930,
+        "rate": 0.1278204898980869
+      },
+      {
+        "birth_year": 2020,
+        "mother_race_ethnicity": "NH Multiracial",
+        "n": 8602,
+        "rate": 0.09149035108114392
+      },
+      {
+        "birth_year": 2020,
+        "mother_race_ethnicity": "NH NHOPI",
+        "n": 1240,
+        "rate": 0.10564516129032259
+      },
+      {
+        "birth_year": 2020,
+        "mother_race_ethnicity": "NH White",
+        "n": 178054,
+        "rate": 0.07642063643613735
+      },
+      {
+        "birth_year": 2021,
+        "mother_race_ethnicity": "Hispanic",
+        "n": 86636,
+        "rate": 0.08876217738584422
+      },
+      {
+        "birth_year": 2021,
+        "mother_race_ethnicity": "NH AIAN",
+        "n": 3869,
+        "rate": 0.10881364693719307
+      },
+      {
+        "birth_year": 2021,
+        "mother_race_ethnicity": "NH Asian",
+        "n": 17864,
+        "rate": 0.08206448723690103
+      },
+      {
+        "birth_year": 2021,
+        "mother_race_ethnicity": "NH Black",
+        "n": 53377,
+        "rate": 0.12758304138486615
+      },
+      {
+        "birth_year": 2021,
+        "mother_race_ethnicity": "NH Multiracial",
+        "n": 8861,
+        "rate": 0.0919760749351089
+      },
+      {
+        "birth_year": 2021,
+        "mother_race_ethnicity": "NH NHOPI",
+        "n": 1223,
+        "rate": 0.1169255928045789
+      },
+      {
+        "birth_year": 2021,
+        "mother_race_ethnicity": "NH White",
+        "n": 179863,
+        "rate": 0.07828736315973825
+      },
+      {
+        "birth_year": 2022,
+        "mother_race_ethnicity": "Hispanic",
+        "n": 89305,
+        "rate": 0.08692682380605789
+      },
+      {
+        "birth_year": 2022,
+        "mother_race_ethnicity": "NH AIAN",
+        "n": 3452,
+        "rate": 0.1179026651216686
+      },
+      {
+        "birth_year": 2022,
+        "mother_race_ethnicity": "NH Asian",
+        "n": 19073,
+        "rate": 0.08048026005347873
+      },
+      {
+        "birth_year": 2022,
+        "mother_race_ethnicity": "NH Black",
+        "n": 55292,
+        "rate": 0.12773999855313609
+      },
+      {
+        "birth_year": 2022,
+        "mother_race_ethnicity": "NH Multiracial",
+        "n": 8754,
+        "rate": 0.09424263193968471
+      },
+      {
+        "birth_year": 2022,
+        "mother_race_ethnicity": "NH NHOPI",
+        "n": 1281,
+        "rate": 0.09914129586260734
+      },
+      {
+        "birth_year": 2022,
+        "mother_race_ethnicity": "NH White",
+        "n": 174639,
+        "rate": 0.07861932328975772
+      },
+      {
+        "birth_year": 2023,
+        "mother_race_ethnicity": "Hispanic",
+        "n": 72529,
+        "rate": 0.08813026513532518
+      },
+      {
+        "birth_year": 2023,
+        "mother_race_ethnicity": "NH AIAN",
+        "n": 2419,
+        "rate": 0.13063249276560562
+      },
+      {
+        "birth_year": 2023,
+        "mother_race_ethnicity": "NH Asian",
+        "n": 15445,
+        "rate": 0.08041437358368404
+      },
+      {
+        "birth_year": 2023,
+        "mother_race_ethnicity": "NH Black",
+        "n": 44802,
+        "rate": 0.13052988705861346
+      },
+      {
+        "birth_year": 2023,
+        "mother_race_ethnicity": "NH Multiracial",
+        "n": 7076,
+        "rate": 0.09030525720746184
+      },
+      {
+        "birth_year": 2023,
+        "mother_race_ethnicity": "NH NHOPI",
+        "n": 1053,
+        "rate": 0.11585944919278253
+      },
+      {
+        "birth_year": 2023,
+        "mother_race_ethnicity": "NH White",
+        "n": 137982,
+        "rate": 0.0797205432592657
+      },
+      {
+        "birth_year": 2024,
+        "mother_race_ethnicity": "Hispanic",
+        "n": 74933,
+        "rate": 0.08819879091988843
+      },
+      {
+        "birth_year": 2024,
+        "mother_race_ethnicity": "NH AIAN",
+        "n": 2330,
+        "rate": 0.13819742489270387
+      },
+      {
+        "birth_year": 2024,
+        "mother_race_ethnicity": "NH Asian",
+        "n": 15972,
+        "rate": 0.08558727773603807
+      },
+      {
+        "birth_year": 2024,
+        "mother_race_ethnicity": "NH Black",
+        "n": 40479,
+        "rate": 0.13150028409792733
+      },
+      {
+        "birth_year": 2024,
+        "mother_race_ethnicity": "NH Multiracial",
+        "n": 7130,
+        "rate": 0.08920056100981767
+      },
+      {
+        "birth_year": 2024,
+        "mother_race_ethnicity": "NH NHOPI",
+        "n": 1087,
+        "rate": 0.09475620975160993
+      },
+      {
+        "birth_year": 2024,
+        "mother_race_ethnicity": "NH White",
+        "n": 139671,
+        "rate": 0.07787586542660968
+      }
+    ],
+    "covid_period_shift": [
+      {
+        "mother_race_ethnicity": "Hispanic",
+        "post_covid": 0.08769803224266895,
+        "pre_covid": 0.08614858809048649,
+        "covid": 0.08709989626135185,
+        "covid_shift_pp": 0.09513081708653615
+      },
+      {
+        "mother_race_ethnicity": "NH AIAN",
+        "post_covid": 0.12742348494086086,
+        "pre_covid": 0.1156190876602901,
+        "covid": 0.11152821506418019,
+        "covid_shift_pp": -0.4090872596109907
+      },
+      {
+        "mother_race_ethnicity": "NH Asian",
+        "post_covid": 0.08207565854624678,
+        "pre_covid": 0.0789355992844365,
+        "covid": 0.0790115155081113,
+        "covid_shift_pp": 0.007591622367479622
+      },
+      {
+        "mother_race_ethnicity": "NH Black",
+        "post_covid": 0.12971196460202172,
+        "pre_covid": 0.1274550100970388,
+        "covid": 0.12770453859313677,
+        "covid_shift_pp": 0.024952849609796712
+      },
+      {
+        "mother_race_ethnicity": "NH Multiracial",
+        "post_covid": 0.09146341463414634,
+        "pre_covid": 0.08982333913908933,
+        "covid": 0.09173681498024394,
+        "covid_shift_pp": 0.1913475841154616
+      },
+      {
+        "mother_race_ethnicity": "NH NHOPI",
+        "post_covid": 0.10289389067524116,
+        "pre_covid": 0.09800664451827243,
+        "covid": 0.11124644742184328,
+        "covid_shift_pp": 1.3239802903570852
+      },
+      {
+        "mother_race_ethnicity": "NH White",
+        "post_covid": 0.07872569048313921,
+        "pre_covid": 0.07678733459883433,
+        "covid": 0.07735871724450082,
+        "covid_shift_pp": 0.05713826456664878
+      }
+    ]
+  },
+  "intersectional": {
+    "gap_black_white_by_education": [
+      {
+        "meduc": 1,
+        "focal_rate": 0.11222063718497385,
+        "focal_n": 4206,
+        "ref_rate": 0.0752673142777273,
+        "ref_n": 14309,
+        "gap_pp": 3.695332290724655
+      },
+      {
+        "meduc": 2,
+        "focal_rate": 0.14857300174359916,
+        "focal_n": 32691,
+        "ref_rate": 0.10609784194762308,
+        "ref_n": 52084,
+        "gap_pp": 4.247515979597609
+      },
+      {
+        "meduc": 3,
+        "focal_rate": 0.13374832313581783,
+        "focal_n": 122252,
+        "ref_rate": 0.0910255080645525,
+        "ref_n": 221773,
+        "gap_pp": 4.272281507126534
+      },
+      {
+        "meduc": 4,
+        "focal_rate": 0.1269489672631034,
+        "focal_n": 69524,
+        "ref_rate": 0.08481438667023525,
+        "ref_n": 175607,
+        "gap_pp": 4.213458059286815
+      },
+      {
+        "meduc": 5,
+        "focal_rate": 0.12469779870212495,
+        "focal_n": 23577,
+        "ref_rate": 0.0814897427373433,
+        "ref_n": 93251,
+        "gap_pp": 4.3208055964781655
+      },
+      {
+        "meduc": 6,
+        "focal_rate": 0.10398794699135996,
+        "focal_n": 32523,
+        "ref_rate": 0.06307869718243728,
+        "ref_n": 266223,
+        "gap_pp": 4.090924980892269
+      },
+      {
+        "meduc": 7,
+        "focal_rate": 0.11134242159693775,
+        "focal_n": 14891,
+        "ref_rate": 0.06428044340288196,
+        "ref_n": 123319,
+        "gap_pp": 4.706197819405579
+      },
+      {
+        "meduc": 8,
+        "focal_rate": 0.11135577225542624,
+        "focal_n": 3179,
+        "ref_rate": 0.0637277733636538,
+        "ref_n": 36499,
+        "gap_pp": 4.762799889177244
+      }
+    ],
+    "gap_black_white_by_payment": [
+      {
+        "pay": 1,
+        "focal_rate": 0.13357844961471094,
+        "focal_n": 201537,
+        "ref_rate": 0.09664819082900895,
+        "ref_n": 282892,
+        "gap_pp": 3.6930258785701984
+      },
+      {
+        "pay": 2,
+        "focal_rate": 0.11687402254849327,
+        "focal_n": 85682,
+        "ref_rate": 0.07183116080974951,
+        "ref_n": 620093,
+        "gap_pp": 4.504286173874377
+      },
+      {
+        "pay": 3,
+        "focal_rate": 0.13598921671409314,
+        "focal_n": 6677,
+        "ref_rate": 0.04743103140841124,
+        "ref_n": 39257,
+        "gap_pp": 8.855818530568191
+      },
+      {
+        "pay": 4,
+        "focal_rate": null,
+        "focal_n": 22,
+        "ref_rate": 0.07777777777777778,
+        "ref_n": 270,
+        "gap_pp": null
+      },
+      {
+        "pay": 5,
+        "focal_rate": 0.10033519553072626,
+        "focal_n": 4475,
+        "ref_rate": 0.059614809753597814,
+        "ref_n": 23417,
+        "gap_pp": 4.072038577712844
+      },
+      {
+        "pay": 6,
+        "focal_rate": 0.1246521981079577,
+        "focal_n": 1797,
+        "ref_rate": 0.07838983050847458,
+        "ref_n": 5664,
+        "gap_pp": 4.626236759948313
+      },
+      {
+        "pay": 8,
+        "focal_rate": 0.16046176046176047,
+        "focal_n": 3465,
+        "ref_rate": 0.07527593818984547,
+        "ref_n": 9060,
+        "gap_pp": 8.5185822271915
+      }
+    ],
+    "black_college_rate": 0.10661553969916787,
+    "black_college_n": 50593,
+    "white_hs_or_less_rate": 0.09296724804452988,
+    "white_hs_or_less_n": 288166
+  },
+  "unsupervised": {
+    "pca_explained_variance_ratio": [
+      0.17031983370666526,
+      0.15519151001032377,
+      0.08552899757926241,
+      0.07453250628168737,
+      0.07139670577855568,
+      0.06990196677972846,
+      0.06689960740702489,
+      0.06514208872996438,
+      0.06261139331628605,
+      0.06085154705778136
+    ],
+    "pca_cumulative_top5": 0.5569695533564946,
+    "silhouette_by_k": {
+      "3": 0.18975156948250022,
+      "4": 0.21871421448257022,
+      "5": 0.2455050263242074,
+      "6": 0.2431584827641056,
+      "7": 0.25156962442102077
+    },
+    "chosen_k": 7,
+    "cluster_profiles": [
+      {
+        "cluster": 0,
+        "n": 25844,
+        "preterm_rate": 0.0661403305081466,
+        "race_composition": {
+          "Hispanic": 0.16831759789506268,
+          "NH AIAN": 0.004720631481194861,
+          "NH Asian": 0.0864417272867977,
+          "NH Black": 0.06976474229995357,
+          "NH Multiracial": 0.01996594954341433,
+          "NH NHOPI": 0.0021668472372697724,
+          "NH White": 0.6392199349945829,
+          "Unknown": 0.00940256926172419
+        },
+        "feature_means": {
+          "mager": 31.329399473765672,
+          "meduc": 5.440256926172419,
+          "bmi": 27.612741811787952,
+          "cig_0": 0.13805912397461692,
+          "priorlive": 0.9097662900479802,
+          "priordead": 0.006345766909147191,
+          "medical_risk_count": 0.0,
+          "married": 0.9295000773874014,
+          "rf_pdiab": 0.0,
+          "rf_phype": 0.0,
+          "rf_ppterm": 0.0,
+          "rf_cesar": 0.0,
+          "wic": 0.05428726203374091,
+          "first_trimester_care": 0.8750967342516638
+        }
+      },
+      {
+        "cluster": 1,
+        "n": 1612,
+        "preterm_rate": 0.19602977667493796,
+        "race_composition": {
+          "Hispanic": 0.14392059553349876,
+          "NH AIAN": 0.017990074441687345,
+          "NH Asian": 0.028535980148883373,
+          "NH Black": 0.2834987593052109,
+          "NH Multiracial": 0.026054590570719603,
+          "NH NHOPI": 0.0012406947890818859,
+          "NH White": 0.49193548387096775,
+          "Unknown": 0.006823821339950372
+        },
+        "feature_means": {
+          "mager": 31.20533498759305,
+          "meduc": 4.299007444168734,
+          "bmi": 35.49615389016463,
+          "cig_0": 1.1073200992555832,
+          "priorlive": 1.3083126550868487,
+          "priordead": 0.020471464019851116,
+          "medical_risk_count": 1.317617866004963,
+          "married": 0.5471464019851117,
+          "rf_pdiab": 0.0,
+          "rf_phype": 1.0,
+          "rf_ppterm": 0.10421836228287841,
+          "rf_cesar": 0.21339950372208435,
+          "wic": 0.34181141439205953,
+          "first_trimester_care": 0.793424317617866
+        }
+      },
+      {
+        "cluster": 2,
+        "n": 22115,
+        "preterm_rate": 0.09052231375033946,
+        "race_composition": {
+          "Hispanic": 0.34383902328736154,
+          "NH AIAN": 0.019172507347953876,
+          "NH Asian": 0.018449016504634864,
+          "NH Black": 0.2243725977843093,
+          "NH Multiracial": 0.028306579244856432,
+          "NH NHOPI": 0.0045218177707438394,
+          "NH White": 0.3548722586479765,
+          "Unknown": 0.00646619941216369
+        },
+        "feature_means": {
+          "mager": 25.38901198281709,
+          "meduc": 3.106127063079358,
+          "bmi": 29.97938956643355,
+          "cig_0": 1.428170924711734,
+          "priorlive": 1.0298892154646169,
+          "priordead": 0.009857562740221568,
+          "medical_risk_count": 0.0,
+          "married": 0.24612254126158717,
+          "rf_pdiab": 0.0,
+          "rf_phype": 0.0,
+          "rf_ppterm": 0.0,
+          "rf_cesar": 0.0,
+          "wic": 0.5964277639611124,
+          "first_trimester_care": 0.6372597784309292
+        }
+      },
+      {
+        "cluster": 3,
+        "n": 7804,
+        "preterm_rate": 0.08701781366141227,
+        "race_composition": {
+          "Hispanic": 0.26998974884674526,
+          "NH AIAN": 0.008072783188108662,
+          "NH Asian": 0.052793439261916965,
+          "NH Black": 0.16286519733470015,
+          "NH Multiracial": 0.02255253716043055,
+          "NH NHOPI": 0.004228600717580728,
+          "NH White": 0.47027165556125067,
+          "Unknown": 0.009226037929267043
+        },
+        "feature_means": {
+          "mager": 31.228856996412098,
+          "meduc": 4.29958995386981,
+          "bmi": 30.98412350975501,
+          "cig_0": 0.7999743721168632,
+          "priorlive": 1.7620451050743209,
+          "priordead": 0.01627370579190159,
+          "medical_risk_count": 0.9993593029215787,
+          "married": 0.670041004613019,
+          "rf_pdiab": 0.0,
+          "rf_phype": 0.0,
+          "rf_ppterm": 0.0,
+          "rf_cesar": 0.9993593029215787,
+          "wic": 0.32995899538698104,
+          "first_trimester_care": 0.767939518195797
+        }
+      },
+      {
+        "cluster": 4,
+        "n": 1902,
+        "preterm_rate": 0.2657894736842105,
+        "race_composition": {
+          "Hispanic": 0.23817034700315456,
+          "NH AIAN": 0.02260778128286015,
+          "NH Asian": 0.03259726603575184,
+          "NH Black": 0.231335436382755,
+          "NH Multiracial": 0.026288117770767613,
+          "NH NHOPI": 0.007360672975814932,
+          "NH White": 0.4374342797055731,
+          "Unknown": 0.004206098843322818
+        },
+        "feature_means": {
+          "mager": 30.50105152471083,
+          "meduc": 3.953732912723449,
+          "bmi": 30.299737096688702,
+          "cig_0": 1.5336487907465826,
+          "priorlive": 2.319663512092534,
+          "priordead": 0.07045215562565721,
+          "medical_risk_count": 1.332807570977918,
+          "married": 0.5615141955835962,
+          "rf_pdiab": 0.0,
+          "rf_phype": 0.0005257623554153522,
+          "rf_ppterm": 1.0,
+          "rf_cesar": 0.3322818086225026,
+          "wic": 0.3785488958990536,
+          "first_trimester_care": 0.7365930599369085
+        }
+      },
+      {
+        "cluster": 5,
+        "n": 685,
+        "preterm_rate": 0.272992700729927,
+        "race_composition": {
+          "Hispanic": 0.2948905109489051,
+          "NH AIAN": 0.03795620437956204,
+          "NH Asian": 0.049635036496350364,
+          "NH Black": 0.17664233576642335,
+          "NH Multiracial": 0.017518248175182483,
+          "NH NHOPI": 0.010218978102189781,
+          "NH White": 0.40875912408759124,
+          "Unknown": 0.004379562043795621
+        },
+        "feature_means": {
+          "mager": 31.672992700729928,
+          "meduc": 4.108029197080292,
+          "bmi": 34.64321170604418,
+          "cig_0": 1.1343065693430656,
+          "priorlive": 1.4846715328467153,
+          "priordead": 0.027737226277372264,
+          "medical_risk_count": 1.5547445255474452,
+          "married": 0.6175182481751825,
+          "rf_pdiab": 1.0,
+          "rf_phype": 0.16058394160583941,
+          "rf_ppterm": 0.08905109489051095,
+          "rf_cesar": 0.3051094890510949,
+          "wic": 0.4058394160583942,
+          "first_trimester_care": 0.7854014598540145
+        }
+      },
+      {
+        "cluster": 6,
+        "n": 38,
+        "preterm_rate": 0.18421052631578946,
+        "race_composition": {
+          "Hispanic": 0.23684210526315788,
+          "NH Black": 0.2631578947368421,
+          "NH White": 0.5
+        },
+        "feature_means": {
+          "mager": 32.578947368421055,
+          "meduc": 3.8684210526315788,
+          "bmi": 33.757894888498406,
+          "cig_0": 1.4736842105263157,
+          "priorlive": 3.710526315789474,
+          "priordead": 4.421052631578948,
+          "medical_risk_count": 0.42105263157894735,
+          "married": 0.47368421052631576,
+          "rf_pdiab": 0.0,
+          "rf_phype": 0.05263157894736842,
+          "rf_ppterm": 0.05263157894736842,
+          "rf_cesar": 0.3157894736842105,
+          "wic": 0.3157894736842105,
+          "first_trimester_care": 0.7105263157894737
+        }
+      }
+    ]
+  },
+  "ceiling_probe": {
+    "test_prevalence": 0.08927,
+    "ablation": {
+      "race_only": {
+        "n_features": 7,
+        "auc_roc": 0.5513970606839936
+      },
+      "demographic": {
+        "n_features": 10,
+        "auc_roc": 0.5763136088987666
+      },
+      "demographic+SES": {
+        "n_features": 20,
+        "auc_roc": 0.5897213536606918
+      },
+      "full_clinical": {
+        "n_features": 29,
+        "auc_roc": 0.6340603484781284
+      }
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "n_singletons_full": 24920407,
+  "years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "overall_rate": 0.08565498147762995,
+  "black_white_gap_pp": 4.738963027311846,
+  "rate_by_race": [
+    {
+      "mother_race_ethnicity": "NH White",
+      "rate": 0.07541684645097427,
+      "n": 12575254
+    },
+    {
+      "mother_race_ethnicity": "NH Asian",
+      "rate": 0.07580608814246394,
+      "n": 1535378
+    },
+    {
+      "mother_race_ethnicity": "Hispanic",
+      "rate": 0.08642055383991659,
+      "n": 6274954
+    },
+    {
+      "mother_race_ethnicity": "NH Multiracial",
+      "rate": 0.08947145359198116,
+      "n": 587517
+    },
+    {
+      "mother_race_ethnicity": "NH AIAN",
+      "rate": 0.10676802190341574,
+      "n": 179698
+    },
+    {
+      "mother_race_ethnicity": "NH NHOPI",
+      "rate": 0.1079902354797416,
+      "n": 67182
+    },
+    {
+      "mother_race_ethnicity": "NH Black",
+      "rate": 0.12280647672409273,
+      "n": 3471014
+    }
+  ],
+  "rate_by_year": [
+    {
+      "birth_year": 2018,
+      "rate": 0.0823340649846947,
+      "n": 3671603
+    },
+    {
+      "birth_year": 2019,
+      "rate": 0.08459426582897953,
+      "n": 3631109
+    },
+    {
+      "birth_year": 2020,
+      "rate": 0.08414301310823079,
+      "n": 3501693
+    },
+    {
+      "birth_year": 2021,
+      "rate": 0.08751384677104004,
+      "n": 3549564
+    },
+    {
+      "birth_year": 2022,
+      "rate": 0.08664497312682283,
+      "n": 3555590
+    },
+    {
+      "birth_year": 2023,
+      "rate": 0.08699885353969619,
+      "n": 3489000
+    },
+    {
+      "birth_year": 2024,
+      "rate": 0.08750973920509914,
+      "n": 3521848
+    }
+  ],
+  "leakage_detector_auc": 0.9170855083251431,
+  "leakage_gate": 0.55,
+  "n_primary_features": 103,
+  "univariate_timing_auc": {
+    "first_trimester_care": 0.5449855102586896,
+    "wic": 0.5114657355007752
+  },
+  "univariate_gate": 0.6,
+  "n_leakage_detector_vars": 50,
+  "working_partitions": {
+    "dev_train": {
+      "n": 1050000,
+      "prevalence": 0.08560126582278481
+    },
+    "dev_val": {
+      "n": 225000,
+      "prevalence": 0.08588266690388294
+    },
+    "dev_test": {
+      "n": 225000,
+      "prevalence": 0.085668278405224
+    },
+    "held_out_final": {
+      "n": 1500000,
+      "prevalence": 0.08565614241105982
+    }
+  },
+  "working_size": 3000000
+}

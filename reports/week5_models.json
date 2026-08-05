@@ -1,0 +1,141 @@
+{
+  "selected_model": "xgboost",
+  "selection_rationale": "xgboost selected on dev_test AUC-PR 0.1738 (held-out 0.1720); the stack reached 0.1760 and the best deep net (tabnet) 0.1297, consistent with the D41 expectation that the tuned boosters already sit at the administrative-data ceiling.",
+  "models": {
+    "xgboost": {
+      "dev_test_auc_pr": 0.17379669205588508,
+      "held_out_auc_pr": 0.17197763840627317,
+      "held_out_auc_pr_ci": [
+        0.1661047840626772,
+        0.17798826657857994
+      ],
+      "held_out_auc_roc": 0.6560777042457833,
+      "held_out_ece": 0.0015281008616276214,
+      "held_out_brier": 0.07522730055551018
+    },
+    "lightgbm": {
+      "dev_test_auc_pr": 0.17213480447353613,
+      "held_out_auc_pr": 0.16991870673386109,
+      "held_out_auc_pr_ci": [
+        0.1642636641011186,
+        0.17571173253106256
+      ],
+      "held_out_auc_roc": 0.6550330401489809,
+      "held_out_ece": 0.0008219043587203291,
+      "held_out_brier": 0.07525168765538309
+    },
+    "tabnet": {
+      "dev_test_auc_pr": 0.12970465239793555,
+      "held_out_auc_pr": 0.12991556825481515,
+      "held_out_auc_pr_ci": [
+        0.12599697177377323,
+        0.13436126141720808
+      ],
+      "held_out_auc_roc": 0.5916218880705366,
+      "held_out_ece": 0.0012273757796920825,
+      "held_out_brier": 0.07688706669811281
+    },
+    "ft_transformer": {
+      "dev_test_auc_pr": 0.11790336395105015,
+      "held_out_auc_pr": 0.12010157359773813,
+      "held_out_auc_pr_ci": [
+        0.11668980415315142,
+        0.12341825689163405
+      ],
+      "held_out_auc_roc": 0.590897887304416,
+      "held_out_ece": 0.0024419026207906434,
+      "held_out_brier": 0.07743114834564009
+    },
+    "stack": {
+      "dev_test_auc_pr": 0.17598558341962303,
+      "held_out_auc_pr": 0.1712683508532663,
+      "held_out_auc_pr_ci": [
+        0.16545523965630748,
+        0.17704020304484175
+      ],
+      "held_out_auc_roc": 0.6560039578837186,
+      "held_out_ece": 0.0019591113062653307,
+      "held_out_brier": 0.0752610366583002
+    }
+  },
+  "stack_weights": {
+    "ft_transformer": 0.15601657881667297,
+    "lightgbm": 0.4306529885544877,
+    "tabnet": 0.06071382595739644,
+    "xgboost": 0.4668716030048224
+  },
+  "tabnet_top_features": [
+    [
+      "medical_risk_count",
+      0.20701498697042955
+    ],
+    [
+      "race_education_Hispanic_edu6",
+      0.14840677554243945
+    ],
+    [
+      "rf_ppterm",
+      0.11012303613020705
+    ],
+    [
+      "race_education_NH White_edu5",
+      0.05011549053513424
+    ],
+    [
+      "race_education_NH White_edu4",
+      0.04030152986808688
+    ],
+    [
+      "race_education_NH Black_eduUNK",
+      0.036250529815879125
+    ],
+    [
+      "race_education_UNK_eduUNK",
+      0.03523465400112475
+    ],
+    [
+      "race_education_NH Black_edu8",
+      0.028775370354484985
+    ],
+    [
+      "age_bracket",
+      0.028650124587718487
+    ],
+    [
+      "race_education_UNK_edu3",
+      0.027763512141436568
+    ],
+    [
+      "rf_cesar",
+      0.027717616336402705
+    ],
+    [
+      "race_education_NH Black_edu2",
+      0.02426050657061401
+    ],
+    [
+      "race_education_NH Asian_edu5",
+      0.021267244615546403
+    ],
+    [
+      "race_education_NH NHOPI_edu3",
+      0.01728533687685613
+    ],
+    [
+      "race_education_NH Asian_edu2",
+      0.013540696929526985
+    ]
+  ],
+  "train_note": "boosters trained on 500K-capped dev_train, deep nets on 30K-capped dev_train; all five models scored on identical rows: 50K dev_val, 50K dev_test, and a 100K seeded draw from the untouched held_out_final partition (all caps disclosed; the FT-Transformer's O(n) CPU forward pass is the binding constraint)",
+  "caps": {
+    "train_cap": 500000,
+    "deep_train_cap": 30000,
+    "val_cap": 50000,
+    "held_out_cap": 100000,
+    "max_epochs": 3,
+    "held_out_scored_n": 100000,
+    "bootstrap_n": 1000
+  },
+  "seed": 42,
+  "smoke": false
+}

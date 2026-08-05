@@ -1,0 +1,121 @@
+{
+  "best": "lightgbm",
+  "held_out_n": 1498760,
+  "held_out_auc_pr": 0.17356349096577664,
+  "held_out_auc_roc": 0.6567604797527998,
+  "held_out_ece": 0.00018359781887597308,
+  "threshold": 0.07839388145315487,
+  "sensitivity": 0.6039508326971911,
+  "specificity": 0.6152051033945279,
+  "fairness_subsample_n": 300000,
+  "params": {
+    "xgboost": {
+      "learning_rate": 0.020273605738234675,
+      "n_estimators": 600,
+      "subsample": 0.7945051660381873,
+      "colsample_bytree": 0.9991085775578109,
+      "reg_lambda": 1.5882254484764928,
+      "max_depth": 5,
+      "min_child_weight": 4.81534144716067
+    },
+    "lightgbm": {
+      "learning_rate": 0.029180149047462245,
+      "n_estimators": 400,
+      "subsample": 0.7465447373174766,
+      "colsample_bytree": 0.7824279936868144,
+      "reg_lambda": 1.3826232179369866,
+      "num_leaves": 37,
+      "min_child_samples": 56
+    }
+  },
+  "dev_test_auc_pr": {
+    "xgboost": 0.17474739835521189,
+    "lightgbm": 0.1748888874137096
+  },
+  "fairness": [
+    {
+      "group": "Hispanic",
+      "n": 75321,
+      "positives": 6486,
+      "demographic_parity_diff": 0.13299817072143805,
+      "equal_opportunity_diff": 0.08664218790768274,
+      "eo_ci": [
+        0.07170129659585696,
+        0.10328464688782356
+      ],
+      "disparate_impact_ratio": 1.4553963115120503,
+      "eo_pvalue": 0.0016638935108153079,
+      "eo_pvalue_bh": 0.0019966722129783694
+    },
+    {
+      "group": "NH AIAN",
+      "n": 2169,
+      "positives": 226,
+      "demographic_parity_diff": 0.21694102531759774,
+      "equal_opportunity_diff": 0.232857726344452,
+      "eo_ci": [
+        0.17698763511111382,
+        0.28884869381632833
+      ],
+      "disparate_impact_ratio": 1.7428233201206853,
+      "eo_pvalue": 0.0016638935108153079,
+      "eo_pvalue_bh": 0.0019966722129783694
+    },
+    {
+      "group": "NH Asian",
+      "n": 18351,
+      "positives": 1442,
+      "demographic_parity_diff": 0.0024850649993137797,
+      "equal_opportunity_diff": -0.021502613890963418,
+      "eo_ci": [
+        -0.04716970607325706,
+        0.00499775123253312
+      ],
+      "disparate_impact_ratio": 1.0085090601503497,
+      "eo_pvalue": 0.11647254575707154,
+      "eo_pvalue_bh": 0.11647254575707154
+    },
+    {
+      "group": "NH Black",
+      "n": 41840,
+      "positives": 5051,
+      "demographic_parity_diff": 0.5081658123611729,
+      "equal_opportunity_diff": 0.39328596012975336,
+      "eo_ci": [
+        0.3806117468130982,
+        0.40784239630029057
+      ],
+      "disparate_impact_ratio": 2.7400001468478887,
+      "eo_pvalue": 0.0016638935108153079,
+      "eo_pvalue_bh": 0.0019966722129783694
+    },
+    {
+      "group": "NH Multiracial",
+      "n": 7173,
+      "positives": 632,
+      "demographic_parity_diff": 0.1362233964500082,
+      "equal_opportunity_diff": 0.09137682570593963,
+      "eo_ci": [
+        0.05039742576164212,
+        0.13340603080405297
+      ],
+      "disparate_impact_ratio": 1.4664397408510965,
+      "eo_pvalue": 0.0016638935108153079,
+      "eo_pvalue_bh": 0.0019966722129783694
+    },
+    {
+      "group": "NH NHOPI",
+      "n": 801,
+      "positives": 94,
+      "demographic_parity_diff": 0.26725158110626446,
+      "equal_opportunity_diff": 0.18362029459901796,
+      "eo_ci": [
+        0.09505839317597604,
+        0.28542499495609275
+      ],
+      "disparate_impact_ratio": 1.915090663438265,
+      "eo_pvalue": 0.0016638935108153079,
+      "eo_pvalue_bh": 0.0019966722129783694
+    }
+  ]
+}

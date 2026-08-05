@@ -1,0 +1,66 @@
+{
+  "source_type": "published_aggregate",
+  "description": "Published CDC and March of Dimes aggregate preterm birth statistics, plus NHANES directional context on maternal hypertension prevalence. No microdata linkage. These are reference points for contextualizing the model's findings against nationally reported figures.",
+  "entries": [
+    {
+      "label": "National preterm rate 2022",
+      "value": "10.4%",
+      "source": "CDC NCHS National Vital Statistics Reports, Vol. 73, No. 1",
+      "url": "https://www.cdc.gov/nchs/data/nvsr/nvsr73/nvsr73-01.pdf",
+      "access_date": "2026-07-19",
+      "linkage": "none; aggregate context only",
+      "note": "This is the overall preterm rate including multiples. Our singleton-only sample has a lower rate (approximately 8.6%) because multiples have much higher preterm incidence."
+    },
+    {
+      "label": "NH Black preterm rate 2022",
+      "value": "approximately 14.6%",
+      "source": "CDC NCHS National Vital Statistics Reports, Vol. 73, No. 1",
+      "url": "https://www.cdc.gov/nchs/data/nvsr/nvsr73/nvsr73-01.pdf",
+      "access_date": "2026-07-19",
+      "linkage": "none; aggregate context only",
+      "note": "Includes multiples. Consistent with the elevated preterm rate for NH Black mothers in our singleton sample (12.3% held-out)."
+    },
+    {
+      "label": "NH White preterm rate 2022",
+      "value": "approximately 9.4%",
+      "source": "CDC NCHS National Vital Statistics Reports, Vol. 73, No. 1",
+      "url": "https://www.cdc.gov/nchs/data/nvsr/nvsr73/nvsr73-01.pdf",
+      "access_date": "2026-07-19",
+      "linkage": "none; aggregate context only",
+      "note": "Includes multiples. Our singleton-only NH White rate is 7.5% (held-out), lower due to exclusion of multiples."
+    },
+    {
+      "label": "Highest-rate state 2022 (Mississippi)",
+      "value": "approximately 14.5%",
+      "source": "March of Dimes Report Card 2023",
+      "url": "https://www.marchofdimes.org/report-card",
+      "access_date": "2026-07-19",
+      "linkage": "none; aggregate context only",
+      "note": "State-level variation cannot be studied in our data because NCHS public-use files suppress geography post-2005."
+    },
+    {
+      "label": "Lowest-rate state 2022 (Oregon)",
+      "value": "approximately 8.5%",
+      "source": "March of Dimes Report Card 2023",
+      "url": "https://www.marchofdimes.org/report-card",
+      "access_date": "2026-07-19",
+      "linkage": "none; aggregate context only",
+      "note": "State-level; aggregate context only."
+    },
+    {
+      "label": "Maternal hypertension prevalence (NHANES directional context)",
+      "value": "NH Black women aged 20-44: approximately 40%; NH White women aged 20-44: approximately 28% (NHANES 2017-2020)",
+      "source": "NHANES 2017-March 2020 pre-pandemic data",
+      "url": "https://www.cdc.gov/nchs/nhanes/index.htm",
+      "access_date": "2026-07-19",
+      "linkage": "none; aggregate context only",
+      "note": "NHANES is a health/nutrition survey with NO birth-outcome linkage. Used only as directional context: higher maternal hypertension prevalence among NH Black women is consistent with the model's rf_phype (pre-pregnancy hypertension) ranking as a top feature in the NH Black stratified model. No causal claim is made."
+    }
+  ],
+  "multiclass_protocol": {
+    "status": "designed_not_run",
+    "description": "4-class severity classification (very preterm <28w, moderate 28-31w, late preterm 32-36w, term 37+w) with timing-conditional features excluded.",
+    "rationale": "The exact-week gestation column used as target is not retained in the modeling parquet (only the binary preterm indicator). Reconstructing from interim files would require re-running the full preprocessing pipeline (estimated >30 minutes). Per spec, descoped to protocol-only.",
+    "planned_approach": "Ordinal or multinomial extension of the selected XGBoost model; separate calibration per class; fairness audit on the very-preterm class (highest clinical severity); same feature set minus any timing-conditional variables that correlate with severity class."
+  }
+}

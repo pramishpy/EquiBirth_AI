@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EquiBirth AI &middot; Week 1: Data, Exploration &amp; EDA</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#5b5b6b; --line:#e7e7ee; --bg:#fbfbfd; --card:#ffffff;
+    --blue:#0072B2; --orange:#E69F00; --green:#009E73; --red:#D55E00;
+    --purple:#CC79A7; --sky:#56B4E9; --grey:#999999;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  a{color:var(--blue); text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ---- hero ---- */
+  header.hero{padding:84px 24px 60px; text-align:center;
+    background:radial-gradient(1200px 500px at 50% -10%, #eef4fb 0%, var(--bg) 60%);
+    border-bottom:1px solid var(--line);}
+  .kicker{font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--blue); font-weight:700;}
+  header.hero h1{font-family:Newsreader,Georgia,serif; font-weight:500; font-size:clamp(34px,5.2vw,58px);
+    line-height:1.08; margin:14px auto 10px; max-width:18ch;}
+  header.hero p.sub{max-width:62ch; margin:0 auto; color:var(--muted); font-size:18px;}
+  .byline{margin-top:22px; font-size:14px; color:var(--muted);}
+  .scope-pill{display:inline-block; margin-top:18px; padding:7px 16px; border:1px solid var(--line);
+    border-radius:999px; background:var(--card); font-size:13px; color:var(--muted); font-weight:500;}
+
+  /* ---- layout ---- */
+  main{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  section{padding:54px 0; border-bottom:1px solid var(--line);}
+  section:last-child{border-bottom:none}
+  .eyebrow{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); font-weight:700;}
+  h2{font-family:Newsreader,Georgia,serif; font-weight:500; font-size:clamp(26px,3.4vw,38px);
+    margin:8px 0 6px; line-height:1.15;}
+  h3{font-size:19px; font-weight:700; margin:30px 0 8px;}
+  p.lead{font-size:18px; color:#37374a; max-width:70ch;}
+  p, li{font-size:16.5px; color:#37374a; max-width:74ch;}
+  .note{font-size:14.5px; color:var(--muted); max-width:74ch;}
+  .analysis{background:#f4f7fb; border-left:3px solid var(--blue); padding:14px 18px; border-radius:0 8px 8px 0;
+    margin:16px 0; font-size:15.5px; color:#33374a; max-width:74ch;}
+  .analysis b{color:var(--ink)}
+
+  /* ---- stat cards ---- */
+  .stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:26px 0 8px;}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 16px;
+    box-shadow:0 1px 2px rgba(20,20,50,.04);}
+  .stat .num{font-size:30px; font-weight:800; letter-spacing:-.02em; line-height:1;}
+  .stat .lab{font-size:13px; color:var(--muted); margin-top:8px;}
+  .stat.accent .num{color:var(--blue)}
+  .stat.warn .num{color:var(--red)}
+
+  /* ---- charts ---- */
+  .chart{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:10px 8px 4px;
+    margin:18px 0; box-shadow:0 1px 2px rgba(20,20,50,.04);}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media(max-width:760px){ .grid2{grid-template-columns:1fr} }
+
+  /* ---- table ---- */
+  .tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:14px; background:var(--card);
+    box-shadow:0 1px 2px rgba(20,20,50,.04); margin:18px 0;}
+  table{border-collapse:collapse; width:100%; font-size:14px;}
+  th,td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--line); white-space:nowrap;}
+  th{background:#f7f8fb; font-weight:600; color:var(--ink); font-size:12.5px; letter-spacing:.02em; text-transform:uppercase;}
+  tbody tr:last-child td{border-bottom:none}
+  td.pt-yes{color:var(--red); font-weight:700}
+  td.pt-no{color:var(--green); font-weight:600}
+
+  /* ---- TOC nav ---- */
+  nav.toc{position:sticky; top:0; z-index:10; background:rgba(251,251,253,.92); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line); padding:11px 24px; font-size:13.5px;}
+  nav.toc .inner{max-width:var(--maxw); margin:0 auto; display:flex; gap:18px; flex-wrap:wrap; align-items:center;}
+  nav.toc b{color:var(--ink); font-weight:700; margin-right:6px}
+  nav.toc a{color:var(--muted); font-weight:500}
+
+  /* ---- plan / next steps ---- */
+  .plan{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin-top:22px;}
+  .plan .step{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px;}
+  .plan .step .n{display:inline-flex; width:26px; height:26px; align-items:center; justify-content:center;
+    border-radius:50%; background:#eef4fb; color:var(--blue); font-weight:800; font-size:14px;}
+  .plan .step h4{margin:12px 0 6px; font-size:16px;}
+  .plan .step p{font-size:14px; color:var(--muted); margin:0;}
+  .plan .step .tag{display:inline-block; margin-top:10px; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--orange); font-weight:700;}
+
+  footer{padding:46px 24px 70px; text-align:center; color:var(--muted); font-size:14px;}
+  .disclaimer{max-width:64ch; margin:0 auto 14px; font-size:13.5px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">EquiBirth AI &middot; Week 1 Deliverable</div>
+  <h1>Acquiring and exploring every U.S. singleton birth, 2018&ndash;2024</h1>
+  <p class="sub">Where the data comes from, whether we gathered the right thing, and what an honest first
+  exploration reveals about preterm birth and racial equity. Every number on this page is computed from the
+  real data.</p>
+  <div class="scope-pill">Scope this week: data acquisition &middot; exploration &middot; EDA &middot; visualization</div>
+  <div class="byline">Parshv Patel &middot; <a href="https://www.linkedin.com/in/parshv-patel-65a90326b/">LinkedIn</a></div>
+</header>
+
+<nav class="toc"><div class="inner">
+  <b>On this page</b>
+  <a href="#snapshot">Snapshot</a>
+  <a href="#sample">Sample rows</a>
+  <a href="#quality">Data quality</a>
+  <a href="#who">Who is in the data</a>
+  <a href="#signals">What predicts preterm</a>
+  <a href="#equity">The equity finding</a>
+  <a href="#corr">Effect size</a>
+  <a href="#next">What comes next</a>
+</div></nav>
+
+<main>
+
+  <section id="snapshot">
+    <div class="eyebrow">The dataset at a glance</div>
+    <h2>What we are working with</h2>
+    <p class="lead">The complete CDC/NCHS Natality public-use files for 2018 to 2024, restricted to singleton
+    births, with only the pre-delivery certificate fields we explore this week.</p>
+    <div class="stats" id="stat-cards"></div>
+    <p class="note">Source: CDC/NCHS Natality public-use files via the NBER mirror. Singletons only (multiples
+    are excluded by design because they are roughly 60% preterm). The overall singleton rate sits below the
+    familiar 10.4% all-births headline exactly as expected.</p>
+  </section>
+
+  <section id="sample">
+    <div class="eyebrow">One record is one birth</div>
+    <h2>A handful of real rows</h2>
+    <p>We always begin the way a real analysis session does: load the table and look at actual rows. These
+    eight are a random, reproducible sample of the raw fields (coded values mapped to readable labels).</p>
+    <div class="tablewrap"><table id="sample-table"></table></div>
+    <p class="note">Only these eight illustrative rows are shipped with the dashboard; everything else on this
+    page is an aggregate, never raw microdata.</p>
+  </section>
+
+  <section id="quality">
+    <div class="eyebrow">Before trusting anything</div>
+    <h2>Data quality: missingness and sentinels</h2>
+    <p>Missingness in administrative data is never random, so we map it first. Then we hunt the NCHS "not
+    stated" sentinel codes that masquerade as real numbers (a BMI of 99.9, 98 cigarettes a day).</p>
+    <div class="grid2">
+      <div class="chart" id="chart-miss"></div>
+      <div class="chart" id="chart-sentinel"></div>
+    </div>
+    <div class="analysis"><b>The discipline.</b> Marital status is missing for about 10% of rows, correlated
+    with reporting jurisdiction (missing-not-at-random); everything else is under 2%. Sentinel values get
+    excluded from quantitative summaries, but genuinely rare-but-real values (a 13-year-old mother, a mother
+    with 12 prior births) are kept, because they exist and are clinically high-risk.</div>
+  </section>
+
+  <section id="who">
+    <div class="eyebrow">Univariate exploration</div>
+    <h2>Who is in the data?</h2>
+    <p>Before relating anything to the outcome, we look at the cast of characters: the distributions of age,
+    pre-pregnancy BMI, education, and payment source.</p>
+    <div class="grid2">
+      <div class="chart" id="chart-age"></div>
+      <div class="chart" id="chart-bmi"></div>
+    </div>
+    <div class="grid2">
+      <div class="chart" id="chart-edu"></div>
+      <div class="chart" id="chart-pay"></div>
+    </div>
+    <div class="analysis"><b>All as expected.</b> Age is bell-shaped near 29, BMI is right-skewed with a real
+    obesity tail (sentinels removed), education peaks at high-school-graduate and bachelor levels, and payment
+    splits between private insurance and Medicaid. Nothing preterm-specific yet, which is exactly what a clean
+    first look should show.</div>
+  </section>
+
+  <section id="signals">
+    <div class="eyebrow">Bivariate exploration</div>
+    <h2>What actually predicts preterm birth?</h2>
+    <p>For each candidate predictor we compute the preterm rate within each level and let the gradient speak.
+    The strongest legitimate signals are clinical.</p>
+    <div class="grid2">
+      <div class="chart" id="chart-prior"></div>
+      <div class="chart" id="chart-smoke"></div>
+    </div>
+    <div class="chart" id="chart-dose"></div>
+    <div class="analysis"><b>Clinical history dominates.</b> A prior preterm birth more than triples the rate
+    (about a 3.4x risk ratio), summed pre-pregnancy risk flags show a clean dose-response climbing toward
+    about 61% at four flags, and smoking adds roughly four points. Each is a group-level gradient, not a sharp
+    individual separator, which foreshadows a modest modeling ceiling.</div>
+  </section>
+
+  <section id="equity">
+    <div class="eyebrow">The finding we did not go looking for</div>
+    <h2>The racial disparity, and whether education closes it</h2>
+    <p>Preterm rate by race shows a roughly 4.7-point gap between NH Black and NH White mothers. A
+    two-proportion z-test gives z about 280 (p indistinguishable from zero, and that huge z is mostly the
+    millions of rows per group shrinking the standard error; the substantive number is the 4.7-point gap).
+    The natural hypothesis is that it is really socioeconomic, so we try to falsify that by stratifying on
+    education.</p>
+    <div class="chart" id="chart-race"></div>
+    <div class="chart" id="chart-edurace"></div>
+    <div class="analysis"><b>The hypothesis is falsified, and that is the finding.</b> The race lines do not
+    converge as education rises. A college-educated NH Black mother has a higher preterm rate than a NH White
+    mother who never finished high school. Education, the supposed great equalizer, does not equalize this.
+    Throughout, <b>race is treated as a marker of exposure to racism and structural barriers, not a biological
+    cause.</b></div>
+  </section>
+
+  <section id="corr">
+    <div class="eyebrow">The statistical habit of the week</div>
+    <h2>Significance is not the same as importance</h2>
+    <p>How strongly does each numeric field correlate with the target? Every one is weak: the strongest, prior
+    preterm birth, reaches only about +0.13.</p>
+    <div class="chart" id="chart-corr"></div>
+    <div class="analysis"><b>No dominant signal hides here.</b> Across tens of millions of rows, a t-test will
+    call a one-unit BMI difference "wildly significant," yet no clinician would act on it. Effect size, not the
+    p-value, is what matters, and the effect sizes are all small. This strongly suggests the honest modeling
+    ceiling will be modest, because the causes of preterm birth largely live outside what a birth certificate
+    records.</div>
+  </section>
+
+  <section id="next">
+    <div class="eyebrow">Planned next steps</div>
+    <h2>What this exploration sets up</h2>
+    <p>This week is acquisition, exploration, quality auditing, EDA, and visualization. The EDA is exactly what
+    tells us how to do the following work well. None of it is done yet; it is the plan for the coming weeks.</p>
+    <div class="plan">
+      <div class="step"><span class="n">1</span><h4>Leakage-safe feature engineering</h4>
+        <p>A tested gate that bars at-delivery fields (birthweight, Apgar, NICU), which are near-perfect but
+        useless predictors. Given how weak the legitimate signals are, this is the most important decision ahead.</p>
+        <span class="tag">Planned</span></div>
+      <div class="step"><span class="n">2</span><h4>Calibrated baseline models</h4>
+        <p>Logistic regression and tree models judged on rate-aware metrics and calibration rather than
+        accuracy, given the class imbalance. A modest ceiling is expected and will be reported honestly.</p>
+        <span class="tag">Planned</span></div>
+      <div class="step"><span class="n">3</span><h4>A formal fairness audit</h4>
+        <p>Turn this week's disparity finding into rigorous metrics: demographic parity, equal opportunity,
+        calibration by group, each with confidence intervals and significance tests.</p>
+        <span class="tag">Planned</span></div>
+      <div class="step"><span class="n">4</span><h4>Explainability &amp; gap decomposition</h4>
+        <p>Verify what any model leans on, then ask how much of the racial gap measured factors actually
+        explain, with appropriate causal humility.</p>
+        <span class="tag">Planned</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="disclaimer">This is an educational and research project. Nothing here is a clinical decision tool.
+  All analysis is descriptive and associational; no causal claim is made. Race is used as a social marker of
+  exposure to racism, never as a biological cause.</p>
+  <p>EquiBirth AI &middot; Week 1 &middot; Parshv Patel &middot;
+  <a href="https://www.linkedin.com/in/parshv-patel-65a90326b/">LinkedIn</a></p>
+</footer>
+
+<script>
+const DATA = {"meta": {"n_rows": 24941021, "n_fields": 17, "years": [2018, 2019, 2020, 2021, 2022, 2023, 2024], "overall_rate": 8.57, "n_preterm": 2134557, "n_missing_target": 20614, "n_race_groups": 7, "education_labels": {"1": "<8th grade", "2": "9-12, no diploma", "3": "HS grad/GED", "4": "Some college", "5": "Associate", "6": "Bachelor", "7": "Master", "8": "Doctorate/Prof"}, "payment_labels": {"1": "Private", "2": "Medicaid", "3": "Self-pay", "4": "Indian Health Svc", "5": "CHAMPUS/TRICARE", "6": "Other govt", "8": "Other"}, "race_order": ["NH White", "NH Asian", "Hispanic", "NH Multiracial", "NH NHOPI", "NH AIAN", "NH Black"], "source": "CDC/NCHS Natality public-use files (NBER mirror), complete files 2018-2024, singletons"}, "acquisition_fraction": [{"year": 2018, "our_sample": 3674115, "published_singletons": 3670377, "fraction_pct": 100.1}, {"year": 2019, "our_sample": 3633587, "published_singletons": 3627618, "fraction_pct": 100.2}, {"year": 2020, "our_sample": 3504248, "published_singletons": 3498010, "fraction_pct": 100.2}, {"year": 2021, "our_sample": 3552604, "published_singletons": 3547034, "fraction_pct": 100.2}, {"year": 2022, "our_sample": 3558362, "published_singletons": 3550389, "fraction_pct": 100.2}, {"year": 2023, "our_sample": 3491735, "published_singletons": 3480944, "fraction_pct": 100.3}, {"year": 2024, "our_sample": 3526370, "published_singletons": 3484800, "fraction_pct": 101.2}], "sample_rows": [{"birth_year": 2023, "mager": 26, "education": "Bachelor", "bmi": 26.6, "cig_0": 0.0, "priorlive": 1.0, "payment": "Self-pay", "mother_race_ethnicity": "Hispanic", "preterm": 0.0}, {"birth_year": 2023, "mager": 36, "education": "Master", "bmi": 24.0, "cig_0": 0.0, "priorlive": 1.0, "payment": "Medicaid", "mother_race_ethnicity": "NH White", "preterm": 0.0}, {"birth_year": 2024, "mager": 28, "education": "Some college", "bmi": 23.2, "cig_0": 0.0, "priorlive": 0.0, "payment": "Private", "mother_race_ethnicity": "NH Multiracial", "preterm": 0.0}, {"birth_year": 2018, "mager": 30, "education": "HS grad/GED", "bmi": 25.7, "cig_0": 0.0, "priorlive": 4.0, "payment": "Private", "mother_race_ethnicity": "Hispanic", "preterm": 0.0}, {"birth_year": 2019, "mager": 30, "education": "Bachelor", "bmi": 19.0, "cig_0": 0.0, "priorlive": 2.0, "payment": "Medicaid", "mother_race_ethnicity": "NH White", "preterm": 0.0}, {"birth_year": 2018, "mager": 19, "education": "HS grad/GED", "bmi": 43.3, "cig_0": 0.0, "priorlive": 0.0, "payment": "Medicaid", "mother_race_ethnicity": "NH Black", "preterm": 0.0}, {"birth_year": 2018, "mager": 35, "education": "HS grad/GED", "bmi": 99.9, "cig_0": 0.0, "priorlive": 1.0, "payment": "Private", "mother_race_ethnicity": "NH White", "preterm": 0.0}, {"birth_year": 2022, "mager": 38, "education": "HS grad/GED", "bmi": 29.2, "cig_0": 0.0, "priorlive": 1.0, "payment": "Self-pay", "mother_race_ethnicity": "Hispanic", "preterm": 0.0}], "rate_by_race": [{"mother_race_ethnicity": "Hispanic", "rate": 8.642055383991659, "n": 6274954}, {"mother_race_ethnicity": "NH AIAN", "rate": 10.676802190341574, "n": 179698}, {"mother_race_ethnicity": "NH Asian", "rate": 7.580608814246394, "n": 1535378}, {"mother_race_ethnicity": "NH Black", "rate": 12.280647672409273, "n": 3471014}, {"mother_race_ethnicity": "NH Multiracial", "rate": 8.947145359198117, "n": 587517}, {"mother_race_ethnicity": "NH NHOPI", "rate": 10.79902354797416, "n": 67182}, {"mother_race_ethnicity": "NH White", "rate": 7.541684645097427, "n": 12575254}], "rate_by_year": [{"birth_year": 2018, "rate": 8.23340649846947, "n": 3671603}, {"birth_year": 2019, "rate": 8.459426582897953, "n": 3631109}, {"birth_year": 2020, "rate": 8.41430131082308, "n": 3501693}, {"birth_year": 2021, "rate": 8.751384677104005, "n": 3549564}, {"birth_year": 2022, "rate": 8.664497312682283, "n": 3555590}, {"birth_year": 2023, "rate": 8.69988535396962, "n": 3489000}, {"birth_year": 2024, "rate": 8.750973920509914, "n": 3521848}], "prior_preterm": [{"rf_ppterm": 0.0, "rate": 7.847024820946014, "n": 23970843}, {"rf_ppterm": 1.0, "rate": 27.043986265479813, "n": 921765}], "risk_dose_response": [{"risk_n": 0.0, "preterm": 7.27222796862836}, {"risk_n": 1.0, "preterm": 11.750027282474301}, {"risk_n": 2.0, "preterm": 26.44829336544999}, {"risk_n": 3.0, "preterm": 42.98608715649074}, {"risk_n": 4.0, "preterm": 60.86443079829949}], "smoking": {"Non-smoker": 8.33, "Smoker": 12.37}, "edu_race": [{"mother_race_ethnicity": "Hispanic", "meduc": 1, "rate": 9.34571079670522}, {"mother_race_ethnicity": "Hispanic", "meduc": 2, "rate": 9.568609896205926}, {"mother_race_ethnicity": "Hispanic", "meduc": 3, "rate": 8.728968051214595}, {"mother_race_ethnicity": "Hispanic", "meduc": 4, "rate": 8.688395366371925}, {"mother_race_ethnicity": "Hispanic", "meduc": 5, "rate": 8.40597858739414}, {"mother_race_ethnicity": "Hispanic", "meduc": 6, "rate": 7.238633451684205}, {"mother_race_ethnicity": "Hispanic", "meduc": 7, "rate": 7.1374113700475235}, {"mother_race_ethnicity": "Hispanic", "meduc": 8, "rate": 7.247245625405055}, {"mother_race_ethnicity": "NH AIAN", "meduc": 1, "rate": 14.795244385733158}, {"mother_race_ethnicity": "NH AIAN", "meduc": 2, "rate": 12.726762670656445}, {"mother_race_ethnicity": "NH AIAN", "meduc": 3, "rate": 10.543786144222825}, {"mother_race_ethnicity": "NH AIAN", "meduc": 4, "rate": 10.111689562644772}, {"mother_race_ethnicity": "NH AIAN", "meduc": 5, "rate": 9.909845449341729}, {"mother_race_ethnicity": "NH AIAN", "meduc": 6, "rate": 8.356102003642988}, {"mother_race_ethnicity": "NH AIAN", "meduc": 7, "rate": 8.550792171481826}, {"mother_race_ethnicity": "NH AIAN", "meduc": 8, "rate": 9.450337512054002}, {"mother_race_ethnicity": "NH Asian", "meduc": 1, "rate": 8.18431229960665}, {"mother_race_ethnicity": "NH Asian", "meduc": 2, "rate": 8.737512392282468}, {"mother_race_ethnicity": "NH Asian", "meduc": 3, "rate": 8.451658449381142}, {"mother_race_ethnicity": "NH Asian", "meduc": 4, "rate": 8.86995241380782}, {"mother_race_ethnicity": "NH Asian", "meduc": 5, "rate": 8.642261608966926}, {"mother_race_ethnicity": "NH Asian", "meduc": 6, "rate": 7.314770673836976}, {"mother_race_ethnicity": "NH Asian", "meduc": 7, "rate": 6.7597139121914855}, {"mother_race_ethnicity": "NH Asian", "meduc": 8, "rate": 6.902599622467635}, {"mother_race_ethnicity": "NH Black", "meduc": 1, "rate": 10.054855163121932}, {"mother_race_ethnicity": "NH Black", "meduc": 2, "rate": 14.22801660317789}, {"mother_race_ethnicity": "NH Black", "meduc": 3, "rate": 12.8326516607727}, {"mother_race_ethnicity": "NH Black", "meduc": 4, "rate": 12.249046292605204}, {"mother_race_ethnicity": "NH Black", "meduc": 5, "rate": 12.279249348367575}, {"mother_race_ethnicity": "NH Black", "meduc": 6, "rate": 10.089991690539692}, {"mother_race_ethnicity": "NH Black", "meduc": 7, "rate": 10.387582372966051}, {"mother_race_ethnicity": "NH Black", "meduc": 8, "rate": 9.769535554357255}, {"mother_race_ethnicity": "NH Multiracial", "meduc": 1, "rate": 8.914218909834867}, {"mother_race_ethnicity": "NH Multiracial", "meduc": 2, "rate": 11.347666491872051}, {"mother_race_ethnicity": "NH Multiracial", "meduc": 3, "rate": 9.552872575942706}, {"mother_race_ethnicity": "NH Multiracial", "meduc": 4, "rate": 9.364513857243464}, {"mother_race_ethnicity": "NH Multiracial", "meduc": 5, "rate": 9.27117046990864}, {"mother_race_ethnicity": "NH Multiracial", "meduc": 6, "rate": 6.982104648900991}, {"mother_race_ethnicity": "NH Multiracial", "meduc": 7, "rate": 6.917959049805557}, {"mother_race_ethnicity": "NH Multiracial", "meduc": 8, "rate": 6.611682911866948}, {"mother_race_ethnicity": "NH NHOPI", "meduc": 1, "rate": 13.005358012664395}, {"mother_race_ethnicity": "NH NHOPI", "meduc": 2, "rate": 12.45580859985201}, {"mother_race_ethnicity": "NH NHOPI", "meduc": 3, "rate": 10.291731139374269}, {"mother_race_ethnicity": "NH NHOPI", "meduc": 4, "rate": 10.646414694454256}, {"mother_race_ethnicity": "NH NHOPI", "meduc": 5, "rate": 11.020592894319982}, {"mother_race_ethnicity": "NH NHOPI", "meduc": 6, "rate": 8.504034761018001}, {"mother_race_ethnicity": "NH NHOPI", "meduc": 7, "rate": 9.105304829770388}, {"mother_race_ethnicity": "NH NHOPI", "meduc": 8, "rate": 9.2}, {"mother_race_ethnicity": "NH White", "meduc": 1, "rate": 6.95010506229284}, {"mother_race_ethnicity": "NH White", "meduc": 2, "rate": 10.618652181314708}, {"mother_race_ethnicity": "NH White", "meduc": 3, "rate": 8.893419091312047}, {"mother_race_ethnicity": "NH White", "meduc": 4, "rate": 8.367891223580557}, {"mother_race_ethnicity": "NH White", "meduc": 5, "rate": 7.942475149485566}, {"mother_race_ethnicity": "NH White", "meduc": 6, "rate": 6.120772756923425}, {"mother_race_ethnicity": "NH White", "meduc": 7, "rate": 6.085800643622541}, {"mother_race_ethnicity": "NH White", "meduc": 8, "rate": 6.1135836519776845}], "corr": {"married": -0.051, "meduc": -0.0467, "first_trimester_care": -0.0151, "wic": 0.0168, "mager": 0.017, "priordead": 0.0217, "priorlive": 0.0269, "cig_0": 0.0271, "rf_cesar": 0.0367, "bmi": 0.0457, "rf_pdiab": 0.0683, "rf_phype": 0.0744, "rf_ppterm": 0.1296}, "age_hist": {"counts": [434, 2075, 9785, 31647, 76672, 153212, 291285, 508901, 673658, 789640, 913877, 1014750, 1114618, 1218838, 1314692, 1409599, 1500500, 1563950, 1590343, 1592636, 1529418, 1424627, 1295650, 1144149, 963222, 778669, 613634, 472685, 340853, 232955, 150201, 89471, 50130, 26870, 14307, 8073, 4662, 9719], "edges": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]}, "bmi_hist": {"counts": [6358, 40268, 190719, 593756, 1429255, 2076454, 2449497, 2575244, 2622866, 1700595, 1932475, 1560881, 1325523, 1234276, 894042, 753924, 637178, 532486, 415400, 322565, 257429, 204212, 175667, 114307, 90180, 67039, 49146, 34481, 28879, 19487, 15228, 11349, 7312, 5928, 4487, 2679, 2071, 1574, 726, 718], "edges": [13.0, 14.4, 15.8, 17.3, 18.7, 20.1, 21.5, 23.0, 24.4, 25.8, 27.2, 28.6, 30.1, 31.5, 32.9, 34.3, 35.8, 37.2, 38.6, 40.0, 41.5, 42.9, 44.3, 45.7, 47.1, 48.6, 50.0, 51.4, 52.8, 54.3, 55.7, 57.1, 58.5, 59.9, 61.4, 62.8, 64.2, 65.6, 67.1, 68.5, 69.9]}, "edu_dist": {"1": 791915, "2": 2094485, "3": 6506639, "4": 4543511, "5": 2052881, "6": 5311693, "7": 2497643, "8": 736968}, "pay_dist": {"1": 10264516, "2": 12533277, "3": 1085459, "4": 17655, "5": 322322, "6": 198048, "8": 319395}, "sentinels": {"bmi_ge_70": {"n": 545712, "pct": 2.19}, "cig_ge_90": {"n": 5135, "pct": 0.02}, "age_le_15": 44093, "age_ge_45": 63703, "priorlive_ge_10": 21491}, "missingness": {"married": 11.56, "first_trimester_care": 2.12, "meduc": 1.58, "wic": 1.13, "mother_race_ethnicity": 0.94, "pay": 0.75, "cig_0": 0.45, "priordead": 0.29, "priorlive": 0.19, "rf_pdiab": 0.14, "rf_phype": 0.14, "rf_ppterm": 0.14, "rf_cesar": 0.14, "preterm": 0.08}};
+
+// ---- Okabe-Ito colorblind-safe palette, matching the notebooks ----
+const C = {blue:"#0072B2", orange:"#E69F00", green:"#009E73", red:"#D55E00",
+           purple:"#CC79A7", sky:"#56B4E9", yellow:"#F0E442", grey:"#999999", ink:"#1a1a2e"};
+const RACE_COLOR = {"NH White":C.blue, "NH Black":C.red, "Hispanic":C.green, "NH Asian":C.orange,
+                    "NH Multiracial":C.grey, "NH NHOPI":C.grey, "NH AIAN":C.grey};
+const FONT = {family:"Inter, system-ui, sans-serif", size:13, color:C.ink};
+const LAYOUT = (title, x, y, extra={}) => Object.assign({
+  title:{text:title, x:0.01, font:{size:15, color:C.ink}},
+  xaxis:Object.assign({title:x, showgrid:false, linecolor:"#ccc", automargin:true}, extra.xaxis||{}),
+  yaxis:Object.assign({title:y, gridcolor:"#ECECEC", zeroline:false, automargin:true}, extra.yaxis||{}),
+  font:FONT, plot_bgcolor:"white", paper_bgcolor:"white",
+  margin:{l:60,r:22,t:48,b:50}, height:extra.height||360,
+  showlegend:extra.showlegend||false,
+  legend:{orientation:"h", y:1.06, x:0, font:FONT}
+}, extra.layout||{});
+const CFG = {responsive:true, displayModeBar:false};
+const fmtN = n => n.toLocaleString("en-US");
+const EDU = DATA.meta.education_labels, PAY = DATA.meta.payment_labels;
+
+// ---- stat cards ----
+(function(){
+  const m = DATA.meta;
+  const cards = [
+    {n:fmtN(m.n_rows), l:"singleton birth records", cls:"accent"},
+    {n:m.n_fields, l:"pre-delivery fields explored"},
+    {n:m.years[0]+"&ndash;"+m.years[m.years.length-1], l:"years pooled (same certificate)"},
+    {n:m.overall_rate.toFixed(1)+"%", l:"overall preterm rate", cls:"accent"},
+    {n:fmtN(m.n_preterm), l:"preterm births observed"},
+    {n:m.n_race_groups, l:"race / ethnicity groups"},
+  ];
+  document.getElementById("stat-cards").innerHTML = cards.map(c =>
+    `<div class="stat ${c.cls||""}"><div class="num">${c.n}</div><div class="lab">${c.l}</div></div>`).join("");
+})();
+
+// ---- sample table ----
+(function(){
+  const rows = DATA.sample_rows;
+  const cols = [["birth_year","Year"],["mager","Age"],["education","Education"],["bmi","BMI"],
+                ["cig_0","Cig/day"],["priorlive","Prior births"],["payment","Payment"],
+                ["mother_race_ethnicity","Race/ethnicity"],["preterm","Preterm?"]];
+  let h = "<thead><tr>"+cols.map(c=>`<th>${c[1]}</th>`).join("")+"</tr></thead><tbody>";
+  rows.forEach(r=>{
+    h += "<tr>"+cols.map(c=>{
+      let v = r[c[0]];
+      if(c[0]==="preterm"){ const yes = v===1; return `<td class="${yes?'pt-yes':'pt-no'}">${yes?'Preterm':'Term'}</td>`; }
+      if(v===null||v===undefined) v="&mdash;";
+      return `<td>${v}</td>`;
+    }).join("")+"</tr>";
+  });
+  document.getElementById("sample-table").innerHTML = h+"</tbody>";
+})();
+
+// ---- missingness ----
+(function(){
+  const entries = Object.entries(DATA.missingness).sort((a,b)=>a[1]-b[1]);
+  Plotly.newPlot("chart-miss", [{
+    type:"bar", orientation:"h", y:entries.map(e=>e[0]), x:entries.map(e=>e[1]),
+    marker:{color:C.orange}, text:entries.map(e=>e[1].toFixed(1)+"%"), textposition:"outside",
+    hovertemplate:"%{y}: %{x:.2f}% missing<extra></extra>"
+  }], LAYOUT("Missingness concentrates in a few fields", "Missing (%)", "",
+            {height:360, layout:{xaxis:{range:[0, Math.max(...entries.map(e=>e[1]))*1.18]}}}), CFG);
+})();
+
+// ---- sentinels ----
+(function(){
+  const s = DATA.sentinels;
+  const items = [
+    ["BMI &ge; 70", s.bmi_ge_70.n], ["Cig/day &ge; 90", s.cig_ge_90.n],
+    ["Age &le; 15", s.age_le_15], ["Age &ge; 45", s.age_ge_45], ["Prior births &ge; 10", s.priorlive_ge_10]
+  ];
+  const colors = [C.red, C.red, C.green, C.green, C.green]; // red = sentinel/drop, green = rare-but-real/keep
+  Plotly.newPlot("chart-sentinel", [{
+    type:"bar", orientation:"h", y:items.map(i=>i[0]), x:items.map(i=>i[1]),
+    marker:{color:colors}, text:items.map(i=>fmtN(i[1])), textposition:"outside",
+    hovertemplate:"%{y}: %{x:,} rows<extra></extra>"
+  }], LAYOUT("Sentinels (red, dropped) vs rare-but-real values (green, kept)", "Rows", "",
+            {height:360, layout:{xaxis:{type:"log", title:"Rows (log scale)"}}}), CFG);
+})();
+
+// ---- age histogram ----
+(function(){
+  const h = DATA.age_hist, centers = h.edges.slice(0,-1);
+  Plotly.newPlot("chart-age", [{
+    type:"bar", x:centers, y:h.counts, marker:{color:C.blue},
+    hovertemplate:"Age %{x}: %{y:,} births<extra></extra>"
+  }], LAYOUT("Maternal age is centered near 29", "Age (years)", "Births", {height:330}), CFG);
+})();
+
+// ---- bmi histogram ----
+(function(){
+  const h = DATA.bmi_hist, centers = h.edges.slice(0,-1).map((e,i)=>(e+h.edges[i+1])/2);
+  Plotly.newPlot("chart-bmi", [{
+    type:"bar", x:centers, y:h.counts, marker:{color:C.green},
+    hovertemplate:"BMI %{x:.1f}: %{y:,} births<extra></extra>"
+  }], LAYOUT("Pre-pregnancy BMI is right-skewed (sentinels removed)", "BMI", "Births", {height:330}), CFG);
+})();
+
+// ---- education distribution ----
+(function(){
+  const d = DATA.edu_dist, keys = Object.keys(d).sort((a,b)=>a-b);
+  Plotly.newPlot("chart-edu", [{
+    type:"bar", x:keys.map(k=>EDU[k]), y:keys.map(k=>d[k]), marker:{color:C.purple},
+    hovertemplate:"%{x}: %{y:,}<extra></extra>"
+  }], LAYOUT("Education peaks at HS-grad and bachelor", "", "Births",
+            {height:340, xaxis:{tickangle:-35}}), CFG);
+})();
+
+// ---- payment distribution ----
+(function(){
+  const d = DATA.pay_dist, keys = Object.keys(d).sort((a,b)=>d[b]-d[a]);
+  Plotly.newPlot("chart-pay", [{
+    type:"bar", x:keys.map(k=>PAY[k]||k), y:keys.map(k=>d[k]), marker:{color:C.sky},
+    hovertemplate:"%{x}: %{y:,}<extra></extra>"
+  }], LAYOUT("Payment splits between private and Medicaid", "", "Births",
+            {height:340, xaxis:{tickangle:-35}}), CFG);
+})();
+
+// ---- prior preterm ----
+(function(){
+  const p = DATA.prior_preterm.sort((a,b)=>a.rf_ppterm-b.rf_ppterm);
+  Plotly.newPlot("chart-prior", [{
+    type:"bar", x:["No prior preterm","Prior preterm"], y:p.map(d=>d.rate),
+    marker:{color:[C.grey, C.red]}, text:p.map(d=>d.rate.toFixed(1)+"%"), textposition:"outside",
+    hovertemplate:"%{x}: %{y:.1f}%<extra></extra>"
+  }], LAYOUT("A prior preterm birth more than triples the rate", "", "Preterm rate (%)",
+            {height:330, layout:{yaxis:{range:[0, Math.max(...p.map(d=>d.rate))*1.2]}}}), CFG);
+})();
+
+// ---- smoking ----
+(function(){
+  const s = DATA.smoking;
+  Plotly.newPlot("chart-smoke", [{
+    type:"bar", x:["Non-smoker","Smoker"], y:[s["Non-smoker"], s["Smoker"]],
+    marker:{color:[C.grey, C.orange]}, text:[s["Non-smoker"].toFixed(1)+"%", s["Smoker"].toFixed(1)+"%"],
+    textposition:"outside", hovertemplate:"%{x}: %{y:.1f}%<extra></extra>"
+  }], LAYOUT("Smoking lifts the preterm rate by about four points", "", "Preterm rate (%)",
+            {height:330, layout:{yaxis:{range:[0, Math.max(s["Non-smoker"],s["Smoker"])*1.25]}}}), CFG);
+})();
+
+// ---- dose response ----
+(function(){
+  const d = DATA.risk_dose_response.sort((a,b)=>a.risk_n-b.risk_n);
+  Plotly.newPlot("chart-dose", [{
+    type:"scatter", mode:"lines+markers+text", x:d.map(r=>r.risk_n), y:d.map(r=>r.preterm),
+    line:{color:C.blue, width:3}, marker:{size:9, color:C.blue},
+    text:d.map(r=>r.preterm.toFixed(0)+"%"), textposition:"top center",
+    hovertemplate:"%{x} risk factors: %{y:.1f}%<extra></extra>"
+  }], LAYOUT("Summed risk flags show a clean dose-response (worth engineering later)",
+            "Number of pre-pregnancy risk factors", "Preterm rate (%)",
+            {height:360, xaxis:{dtick:1}, layout:{yaxis:{range:[0, 75]}}}), CFG);
+})();
+
+// ---- rate by race ----
+(function(){
+  const order = DATA.meta.race_order;
+  const r = DATA.rate_by_race.slice().sort((a,b)=>a.rate-b.rate);
+  Plotly.newPlot("chart-race", [{
+    type:"bar", orientation:"h", y:r.map(d=>d.mother_race_ethnicity), x:r.map(d=>d.rate),
+    marker:{color:r.map(d=>RACE_COLOR[d.mother_race_ethnicity]||C.grey)},
+    text:r.map(d=>d.rate.toFixed(1)+"%"), textposition:"outside",
+    customdata:r.map(d=>d.n),
+    hovertemplate:"%{y}: %{x:.2f}%  (n=%{customdata:,})<extra></extra>"
+  }], LAYOUT("NH Black mothers have the highest singleton preterm rate", "Preterm rate (%)", "",
+            {height:360, layout:{xaxis:{range:[0, Math.max(...r.map(d=>d.rate))*1.15]}}}), CFG);
+})();
+
+// ---- education x race ----
+(function(){
+  const races = ["NH White","NH Black","Hispanic","NH Asian"];
+  const traces = races.map(race=>{
+    const pts = DATA.edu_race.filter(d=>d.mother_race_ethnicity===race).sort((a,b)=>a.meduc-b.meduc);
+    return {type:"scatter", mode:"lines+markers", name:race,
+      x:pts.map(d=>EDU[d.meduc]), y:pts.map(d=>d.rate),
+      line:{color:RACE_COLOR[race], width:2.4}, marker:{size:7},
+      hovertemplate:race+", %{x}: %{y:.1f}%<extra></extra>"};
+  });
+  Plotly.newPlot("chart-edurace", traces,
+    LAYOUT("The racial gap does not close as education rises", "Maternal education", "Preterm rate (%)",
+           {height:420, showlegend:true, xaxis:{tickangle:-30}}), CFG);
+})();
+
+// ---- correlations ----
+(function(){
+  const e = Object.entries(DATA.corr).sort((a,b)=>a[1]-b[1]);
+  Plotly.newPlot("chart-corr", [{
+    type:"bar", orientation:"h", y:e.map(d=>d[0]), x:e.map(d=>d[1]),
+    marker:{color:e.map(d=>d[1]<0?C.blue:C.red)},
+    text:e.map(d=>(d[1]>=0?"+":"")+d[1].toFixed(3)), textposition:"outside",
+    hovertemplate:"%{y}: %{x:.3f}<extra></extra>"
+  }], LAYOUT("Every feature correlates only weakly with preterm birth",
+            "Pearson correlation with the target", "", {height:460}), CFG);
+})();
+</script>
+</body>
+</html>

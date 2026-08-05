@@ -1,0 +1,131 @@
+{
+  "mitigations": {
+    "baseline": {
+      "method": "xgboost (week-4 tuned, isotonic-calibrated)",
+      "auc_pr": 0.17228843649373113,
+      "auc_roc": 0.6562638543224338,
+      "ece": 0.0007020540286228072,
+      "ece_quantile": 0.002590038628317416,
+      "sensitivity": 0.6067677946324388,
+      "specificity": 0.6061795909438915,
+      "threshold": 0.07839388145315487,
+      "per_group_eo_gap": {
+        "Hispanic": 0.08429427780041698,
+        "NH AIAN": 0.2504362304362304,
+        "NH Asian": -0.014484664271898318,
+        "NH Black": 0.38927566951927484,
+        "NH Multiracial": 0.04640692640692645,
+        "NH NHOPI": 0.049581529581529615
+      },
+      "per_group_dp_diff": {
+        "Hispanic": 0.13743521811971998,
+        "NH AIAN": 0.2108811772094018,
+        "NH Asian": 0.012368014515501513,
+        "NH Black": 0.5205563231649458,
+        "NH Multiracial": 0.11963961076347573,
+        "NH NHOPI": 0.21649590761977255
+      },
+      "worst_group_eo_gap": 0.38927566951927484,
+      "mean_abs_eo_gap": 0.13907988300271276
+    },
+    "reweight": {
+      "method": "reweighting (group x outcome cell mass equalized) + xgboost refit",
+      "auc_pr": 0.16564004115123887,
+      "auc_roc": 0.6430178426507593,
+      "ece": 0.0003802453801780939,
+      "ece_quantile": 0.0015412203864753225,
+      "sensitivity": 0.6093348891481913,
+      "specificity": 0.5863283386197091,
+      "threshold": 0.07839388145315487,
+      "per_group_eo_gap": {
+        "Hispanic": -0.016870832668922642,
+        "NH AIAN": -0.1025041625041625,
+        "NH Asian": 0.008079579994473618,
+        "NH Black": 0.01744024550358292,
+        "NH Multiracial": -0.03913419913419913,
+        "NH NHOPI": -0.5042135642135641
+      },
+      "per_group_dp_diff": {
+        "Hispanic": 0.04025587313927337,
+        "NH AIAN": -0.10864976677124627,
+        "NH Asian": 0.038550881172284,
+        "NH Black": 0.03623261125684951,
+        "NH Multiracial": -0.0027152638340184887,
+        "NH NHOPI": -0.23337109448984916
+      },
+      "worst_group_eo_gap": 0.5042135642135641,
+      "mean_abs_eo_gap": 0.11470709733648415
+    },
+    "expgrad": {
+      "method": "ExponentiatedGradient (TPR parity constraint, logistic base learner)",
+      "sensitivity": 0.009801633605600933,
+      "specificity": 0.9986218965328667,
+      "per_group_eo_gap": {
+        "Hispanic": 0.0005219609858081887,
+        "NH AIAN": 0.071988011988012,
+        "NH Asian": 0.00570323293727549,
+        "NH Black": 0.018816457598430803,
+        "NH Multiracial": 0.004588744588744589,
+        "NH NHOPI": -0.0049350649350649355
+      },
+      "per_group_dp_diff": {
+        "Hispanic": 7.803981283364633e-05,
+        "NH AIAN": 0.015149827342492532,
+        "NH Asian": 0.0004414734480372429,
+        "NH Black": 0.004795643748355815,
+        "NH Multiracial": 0.002127456826934008,
+        "NH NHOPI": 0.006376811076288257
+      },
+      "worst_group_eo_gap": 0.071988011988012,
+      "mean_abs_eo_gap": 0.017758912172222665,
+      "expgrad_baseline_sens": 0.008868144690781798,
+      "expgrad_baseline_spec": 0.9989609537350979,
+      "note": "Hard 0/1 predictions from a logistic base learner; no AUC-PR/ECE (no calibrated probabilities). IMPORTANT: the near-zero mitigated sensitivity is a setup artifact, NOT a property of the fairness constraint. The UNCONSTRAINED logistic baseline already has sensitivity 0.009 at the classifier's default 0.5 decision cutoff, because at 8.6% prevalence almost no logistic score exceeds 0.5. The XGBoost baseline, by contrast, is scored at a tuned 0.078 threshold (sensitivity 0.607), so the two are compared at incomparable operating points. What ExponentiatedGradient did achieve, near-complete TPR equalization (worst gap 0.072) with a weak convex base learner, is real; the low sensitivity reflects the logistic base learner plus a 0.5 cutoff, not a cost inherent to in-processing fairness constraints."
+    },
+    "threshopt": {
+      "method": "ThresholdOptimizer (group-specific thresholds on baseline scores)",
+      "sensitivity": 0.5018669778296383,
+      "specificity": 0.7009734222902767,
+      "per_group_eo_gap": {
+        "Hispanic": 0.014912209209617111,
+        "NH AIAN": 0.05786879786879784,
+        "NH Asian": 0.008659850787510304,
+        "NH Black": -0.006842779632061036,
+        "NH Multiracial": -0.07290043290043291,
+        "NH NHOPI": -0.17290043290043294
+      },
+      "per_group_dp_diff": {
+        "Hispanic": 0.06818432654758505,
+        "NH AIAN": 0.00751045965274838,
+        "NH Asian": 0.03414024145454636,
+        "NH Black": 0.013274481075829125,
+        "NH Multiracial": -0.03457998543497187,
+        "NH NHOPI": -0.06796844382343029
+      },
+      "worst_group_eo_gap": 0.17290043290043294,
+      "mean_abs_eo_gap": 0.05568075054980869,
+      "note": "disparate treatment: different decision rules by group; reported as analytical option, never deployed"
+    }
+  },
+  "fairness_subsample_n": 100000,
+  "threshold": 0.07839388145315487,
+  "reference_group": "NH White",
+  "groups": [
+    "Hispanic",
+    "NH AIAN",
+    "NH Asian",
+    "NH Black",
+    "NH Multiracial",
+    "NH NHOPI"
+  ],
+  "seed": 42,
+  "smoke": false,
+  "caps": {
+    "train_cap": 500000,
+    "fair_cap": 100000,
+    "val_cap": 50000,
+    "expgrad_cap": 50000,
+    "boot_n": 200,
+    "perm_n": 300
+  }
+}

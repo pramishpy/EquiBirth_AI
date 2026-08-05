@@ -1,0 +1,404 @@
+{
+  "out_of_time": {
+    "train_era": "2018-2019 (pre-COVID)",
+    "train_n": 200000,
+    "cal_n": 65764,
+    "covid_era": {
+      "years": "2020-2021",
+      "n": 424074,
+      "auc_pr": 0.1688154326828917,
+      "auc_roc": 0.6527266481512938,
+      "ece": 0.0016124740833247603
+    },
+    "recent_era": {
+      "years": "2022-2024",
+      "n": 635489,
+      "auc_pr": 0.17213073437077575,
+      "auc_roc": 0.6545032746400393,
+      "ece": 0.0016676014119851748
+    }
+  },
+  "out_of_time_note": "This establishes temporal stability WITHIN the NCHS natality system (same birth-certificate instrument and coding across 2018-2024), not external validity. The model is not validated on any non-NCHS population or clinical cohort, so the small out-of-time drop should not be read as evidence it would transport to a different data source or care setting.",
+  "drift": [
+    {
+      "year": 2018,
+      "n": 44163,
+      "prevalence": 0.08253515386183004,
+      "auc_roc": 0.6555601666241108,
+      "auc_pr": 0.16716290552972551,
+      "ece": 0.0013632371223187751
+    },
+    {
+      "year": 2019,
+      "n": 43951,
+      "prevalence": 0.08420741280061887,
+      "auc_roc": 0.6614372580182291,
+      "auc_pr": 0.17403213602429018,
+      "ece": 0.002801569419970009
+    },
+    {
+      "year": 2020,
+      "n": 42119,
+      "prevalence": 0.08229065267456492,
+      "auc_roc": 0.6610023850033908,
+      "auc_pr": 0.17238465706159473,
+      "ece": 0.0032771304732682974
+    },
+    {
+      "year": 2021,
+      "n": 42686,
+      "prevalence": 0.08867075856252636,
+      "auc_roc": 0.6591651428819225,
+      "auc_pr": 0.1799807389175508,
+      "ece": 0.0030306928497828302
+    },
+    {
+      "year": 2022,
+      "n": 42788,
+      "prevalence": 0.08885668879124989,
+      "auc_roc": 0.6693021595607515,
+      "auc_pr": 0.18867270896466315,
+      "ece": 0.0023245670252151447
+    },
+    {
+      "year": 2023,
+      "n": 41784,
+      "prevalence": 0.08864637181696343,
+      "auc_roc": 0.6581614655176324,
+      "auc_pr": 0.18163993682492474,
+      "ece": 0.0018095334231491185
+    },
+    {
+      "year": 2024,
+      "n": 42509,
+      "prevalence": 0.08654637841398292,
+      "auc_roc": 0.6585618362658174,
+      "auc_pr": 0.18165054570372557,
+      "ece": 0.0012137614820325977
+    }
+  ],
+  "stratified_models": {
+    "Hispanic": {
+      "train_n": 100000,
+      "cal_n": 56550,
+      "held_out_n": 50000,
+      "prevalence": 0.08672,
+      "auc_pr": 0.14935518718772636,
+      "auc_roc": 0.6200486922405467,
+      "ece": 0.002067340671010307,
+      "top_features": [
+        [
+          "rf_ppterm",
+          0.36182135343551636
+        ],
+        [
+          "rf_phype",
+          0.09782960265874863
+        ],
+        [
+          "medical_risk_count",
+          0.062012091279029846
+        ],
+        [
+          "rf_pdiab",
+          0.045799098908901215
+        ],
+        [
+          "age_bracket",
+          0.03306341543793678
+        ],
+        [
+          "priorlive",
+          0.021127238869667053
+        ],
+        [
+          "rf_cesar",
+          0.020485134795308113
+        ],
+        [
+          "wic",
+          0.019774138927459717
+        ],
+        [
+          "race_education_Hispanic_edu6",
+          0.01966160349547863
+        ],
+        [
+          "first_trimester_care",
+          0.019266078248620033
+        ]
+      ],
+      "hypothesis_only": true
+    },
+    "NH Asian": {
+      "train_n": 64692,
+      "cal_n": 13840,
+      "held_out_n": 50000,
+      "prevalence": 0.07614,
+      "auc_pr": 0.1270182812367362,
+      "auc_roc": 0.6069095465092494,
+      "ece": 0.003522057867348201,
+      "top_features": [
+        [
+          "rf_ppterm",
+          0.22549937665462494
+        ],
+        [
+          "rf_phype",
+          0.0895066112279892
+        ],
+        [
+          "medical_risk_count",
+          0.06771925836801529
+        ],
+        [
+          "age_bracket",
+          0.044787824153900146
+        ],
+        [
+          "race_education_NH Asian_edu8",
+          0.04059860110282898
+        ],
+        [
+          "pay_3",
+          0.030856624245643616
+        ],
+        [
+          "rf_pdiab",
+          0.02920583076775074
+        ],
+        [
+          "rf_cesar",
+          0.029060276225209236
+        ],
+        [
+          "priorlive",
+          0.026140766218304634
+        ],
+        [
+          "bmi",
+          0.024197755381464958
+        ]
+      ],
+      "hypothesis_only": true
+    },
+    "NH Black": {
+      "train_n": 100000,
+      "cal_n": 31082,
+      "held_out_n": 50000,
+      "prevalence": 0.12386,
+      "auc_pr": 0.21273433341120845,
+      "auc_roc": 0.6363777408451161,
+      "ece": 0.004436428729789334,
+      "top_features": [
+        [
+          "rf_ppterm",
+          0.3937801718711853
+        ],
+        [
+          "rf_phype",
+          0.14625000953674316
+        ],
+        [
+          "rf_pdiab",
+          0.041569989174604416
+        ],
+        [
+          "medical_risk_count",
+          0.032049793750047684
+        ],
+        [
+          "married",
+          0.020345663651823997
+        ],
+        [
+          "wic",
+          0.019724003970623016
+        ],
+        [
+          "race_education_NH Black_edu1",
+          0.019519392400979996
+        ],
+        [
+          "first_trimester_care",
+          0.019496401771903038
+        ],
+        [
+          "priorlive",
+          0.019088689237833023
+        ],
+        [
+          "meduc",
+          0.01710321195423603
+        ]
+      ],
+      "hypothesis_only": true
+    },
+    "NH Multiracial": {
+      "train_n": 24756,
+      "cal_n": 5355,
+      "held_out_n": 35333,
+      "prevalence": 0.08943480598873574,
+      "auc_pr": 0.15000337382827614,
+      "auc_roc": 0.6132000917114635,
+      "ece": 0.010278054418489505,
+      "top_features": [
+        [
+          "rf_ppterm",
+          0.22070206701755524
+        ],
+        [
+          "rf_pdiab",
+          0.06038052961230278
+        ],
+        [
+          "rf_phype",
+          0.05327644571661949
+        ],
+        [
+          "age_bracket",
+          0.04514482617378235
+        ],
+        [
+          "medical_risk_count",
+          0.04105434939265251
+        ],
+        [
+          "race_education_NH Multiracial_edu2",
+          0.037080951035022736
+        ],
+        [
+          "pay_1",
+          0.02932855300605297
+        ],
+        [
+          "married",
+          0.02926870808005333
+        ],
+        [
+          "priorlive",
+          0.02549155429005623
+        ],
+        [
+          "pay_5",
+          0.02531805820763111
+        ]
+      ],
+      "hypothesis_only": true
+    },
+    "NH White": {
+      "train_n": 100000,
+      "cal_n": 113752,
+      "held_out_n": 50000,
+      "prevalence": 0.07642,
+      "auc_pr": 0.15785055249531801,
+      "auc_roc": 0.653871087042871,
+      "ece": 0.0015064501119963817,
+      "top_features": [
+        [
+          "rf_ppterm",
+          0.29959893226623535
+        ],
+        [
+          "rf_phype",
+          0.14104178547859192
+        ],
+        [
+          "medical_risk_count",
+          0.06021816283464432
+        ],
+        [
+          "pay_3",
+          0.03792298212647438
+        ],
+        [
+          "rf_pdiab",
+          0.035448551177978516
+        ],
+        [
+          "married",
+          0.02921438030898571
+        ],
+        [
+          "priorlive",
+          0.028656618669629097
+        ],
+        [
+          "first_trimester_care",
+          0.02464914508163929
+        ],
+        [
+          "priordead",
+          0.02336018905043602
+        ],
+        [
+          "rf_cesar",
+          0.022762535139918327
+        ]
+      ],
+      "hypothesis_only": true
+    }
+  },
+  "stratified_comparability_note": "AUC-PR is prevalence-dependent and NOT comparable across groups with different preterm prevalence. A group with higher prevalence (e.g. NH Black) can show a higher AUC-PR partly as a mechanical consequence of its base rate, not because the model discriminates better for it. Use AUC-ROC, which is prevalence-robust, for cross-group discrimination comparison; the per-group prevalence is reported alongside each model for this reason.",
+  "sensitivity_threshold": [
+    {
+      "threshold": 0.03919694072657744,
+      "threshold_pct_of_base": 50.0,
+      "sensitivity": 0.9801023970211775,
+      "specificity": 0.062136694163038166,
+      "worst_eo_gap": 0.04287137127586327
+    },
+    {
+      "threshold": 0.058795411089866155,
+      "threshold_pct_of_base": 75.0,
+      "sensitivity": 0.8384143976417656,
+      "specificity": 0.31459276925657687,
+      "worst_eo_gap": 0.23439219685079749
+    },
+    {
+      "threshold": 0.07839388145315487,
+      "threshold_pct_of_base": 100.0,
+      "sensitivity": 0.6146536343185168,
+      "specificity": 0.6074181855312197,
+      "worst_eo_gap": 0.42672311716196804
+    },
+    {
+      "threshold": 0.09799235181644358,
+      "threshold_pct_of_base": 125.0,
+      "sensitivity": 0.454425568225894,
+      "specificity": 0.7710945306289156,
+      "worst_eo_gap": 0.41822922970860815
+    },
+    {
+      "threshold": 0.11759082217973231,
+      "threshold_pct_of_base": 150.0,
+      "sensitivity": 0.29644713365914205,
+      "specificity": 0.8922645486437798,
+      "worst_eo_gap": 0.27869055199743187
+    }
+  ],
+  "sensitivity_cap": [
+    {
+      "train_cap": 100000,
+      "held_out_auc_pr": 0.17067258245399106
+    },
+    {
+      "train_cap": 250000,
+      "held_out_auc_pr": 0.17545668762226646
+    },
+    {
+      "train_cap": 500000,
+      "held_out_auc_pr": 0.177643480395202
+    }
+  ],
+  "sensitivity_cap_note": "The train-cap plateau is an XGBoost property and shows the 500K cap is past the diminishing-returns knee for the boosters; it does NOT license the same claim for the deep nets in Week 5, which are the archetype that keeps improving with data.",
+  "caps": {
+    "train_cap": 500000,
+    "oot_train_cap": 200000,
+    "held_out_cap": 300000,
+    "group_train_cap": 100000,
+    "group_ho_cap": 50000
+  },
+  "seed": 42,
+  "smoke": false
+}

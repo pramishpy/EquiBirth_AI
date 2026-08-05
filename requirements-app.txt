@@ -1,0 +1,8 @@
+# Minimal dependencies for the EquiBirth AI Streamlit dashboard ONLY.
+# The deployed app reads committed aggregates from reports/dashboard_data.json, so it needs no raw data,
+# no ML libraries, and no heavy build. Use THIS file (not the full requirements.txt) for Streamlit
+# Community Cloud so the build stays small and fast and fits the free-tier resource limit.
+streamlit>=1.36
+plotly>=5.22
+pandas>=2.2
+numpy>=1.26
