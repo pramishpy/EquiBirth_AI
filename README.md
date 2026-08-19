@@ -100,7 +100,7 @@ Needs Python 3.11 or newer (`requires-python = ">=3.11"`).
 python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-pytest                      # 137 passed, 4 skipped (skips need the gitignored raw data)
+pytest                      # 136 passed, 5 skipped (skips need the raw data or optional rtdl)
 ```
 
 Two optional environments exist so the common paths stay light. `requirements-app.txt` is the
@@ -162,7 +162,7 @@ from scratch, which keeps reproduction fully determined by data plus seed.
 
 ```
 src/equibirth/   ingest, features, models, fairness, explain, eval, explore, viz, app, utils
-tests/           mirrors src/ 1:1 (137 passing)
+tests/           mirrors src/ 1:1 (141 tests: 136 pass, 5 skip without raw data or rtdl)
 notebooks/       week1..week9 storytelling series, compiled last from verified scripts
 scripts/         weekN_* pipeline runners, notebook/dashboard builders, presentation builders
 reports/         per-week md/json artifacts, model card, datasheet, HTML dashboards

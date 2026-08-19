@@ -92,7 +92,7 @@ pip install -r requirements.txt        # was broken until 2026-08-19; see sectio
 Verify:
 
 ```bash
-make test        # expect ~137 passed, 4 skipped (the 4 skips need the gitignored raw data)
+make test        # expect 136 passed, 5 skipped (4 skips need the raw data, 1 needs optional rtdl)
 make lint        # ruff, should be clean
 ```
 
@@ -163,12 +163,14 @@ install failed and **CI was red at the install step** on commit `8798572`. Fixed
 into [`requirements-deep.txt`](requirements-deep.txt) as an isolated optional env.
 
 Nothing in the pipeline depends on it: `rtdl` is imported lazily inside `_FTWrapper.__init__`
-(`src/equibirth/models/deep.py`) and the deep tests use `pytest.importorskip`, so the suite skips
-cleanly. The FT-Transformer benchmark is already complete with results archived in
-`reports/week5_models.json`.
+(`src/equibirth/models/deep.py`), so no import breaks, and the FT-Transformer benchmark is already
+complete with results archived in `reports/week5_models.json`.
 
-**Verify CI is green on the new machine before trusting the install.** If it is still red, read the
-Actions log rather than assuming this fix was sufficient.
+Removing it did surface one real consequence, caught by CI rather than assumed away: the
+`test_fit_predict_returns_valid_probs[ft_transformer]` case genuinely needs `rtdl` and so began
+failing (136 passed, 1 failed). That test now `importorskip`s `rtdl`, giving 136 passed and 5 skipped.
+The lesson is worth keeping: the first two fixes each revealed the next failure only after CI ran.
+**Read the Actions log rather than assuming a fix was sufficient.**
 
 **2. xgboost segfaulted on the old laptop (macOS).** Crashed the interpreter on import, which
 blocked 5 test files and left the suite at 117 passed instead of 137. Reproduced on xgboost 3.2.0
@@ -216,7 +218,7 @@ so a 3.11 environment quietly resolves to an older shap.
 [ ] python3 --version reports 3.11 or newer
 [ ] git clone succeeded and `git log -1` shows the handoff commit
 [ ] pip install -r requirements.txt completes without a resolver error
-[ ] make test         -> ~137 passed, 4 skipped
+[ ] make test         -> 136 passed, 5 skipped, 0 failed
 [ ] make lint         -> clean
 [ ] streamlit app opens and shows the disclaimer banner
 [ ] make presentation-check PY=./.venv-deck/bin/python -> all three checks pass

@@ -18,6 +18,11 @@ def _toy(n=600, d=8, seed=0):
 
 @pytest.mark.parametrize("name", ["tabnet", "ft_transformer"])
 def test_fit_predict_returns_valid_probs(name):
+    # ft_transformer needs rtdl, which pins torch<2/numpy<2 and so cannot be installed alongside the
+    # main requirements; it lives in its own env (requirements-deep.txt). Skip rather than fail when
+    # it is absent, which is the normal case.
+    if name == "ft_transformer":
+        pytest.importorskip("rtdl", reason="rtdl is optional; see requirements-deep.txt")
     X, y, tr, val, ho = _toy()
     p = deep.fit_predict(name, X, y, tr, val, ho, max_epochs=3, seed=42)
     assert p.shape == (int(ho.sum()),)
