@@ -24,8 +24,12 @@ optuna>=3.6
 # ---- Deep learning (tabular) ----
 torch>=2.3
 pytorch-lightning>=2.3
-rtdl>=0.0.13
 pytorch-tabnet>=4.1
+# rtdl (FT-Transformer) is deliberately NOT here: rtdl 0.0.13 pins torch<2 and numpy<2, which
+# cannot coexist with torch>=2.3 above or with samplics (numpy>=2.1). Installing it here makes the
+# whole file unresolvable. The FT-Transformer benchmark is already complete and its numbers are
+# archived in reports/week5_models.json, so nothing in the pipeline needs it. To re-run only that
+# benchmark, build the separate env in requirements-deep.txt. See HANDOFF.md.
 # tabpfn>=2.0  # experimental (Correction 4); enable in Phase 5 on a size-appropriate subsample
 
 # ---- Unsupervised / exploration (Phase 8) ----

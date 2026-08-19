@@ -66,7 +66,15 @@ class _FTWrapper:
     """Minimal rtdl FT-Transformer binary classifier with an sklearn-ish predict_proba."""
 
     def __init__(self, n_features: int, seed: int):
-        import rtdl
+        try:
+            import rtdl
+        except ImportError as exc:  # rtdl pins torch<2/numpy<2, so it lives in its own env
+            raise ImportError(
+                "rtdl is not installed. It cannot coexist with the main requirements "
+                "(it pins torch<2 and numpy<2), so the FT-Transformer runs in a separate "
+                "environment: see requirements-deep.txt. The archived benchmark numbers are "
+                "already in reports/week5_models.json, so you only need this to re-run it."
+            ) from exc
         import torch
 
         _set_torch_determinism(seed)

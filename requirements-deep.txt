@@ -1,0 +1,30 @@
+# Isolated environment for ONE thing only: re-running the FT-Transformer arm of the Week 5
+# deep-learning benchmark (scripts/week5_deep_and_ensemble.py).
+#
+# Why this file exists. rtdl 0.0.13 (the FT-Transformer implementation used in Week 5) pins
+# torch>=1.7,<2 and numpy>=1.18,<2. The main requirements.txt needs torch>=2.3, and samplics needs
+# numpy>=2.1, so rtdl cannot be installed alongside the rest of the project. Rather than downgrade
+# the whole stack, the FT-Transformer is reproduced in its own throwaway env.
+#
+# You almost certainly do not need this. The benchmark is finished and every number it produced is
+# archived in reports/week5_models.json and quoted in FINDINGS.md F20. The result was that the
+# FT-Transformer placed last (held-out AUC-PR 0.1201), and it was a compute-capped comparison that
+# the project explicitly declines to read as "trees beat deep learning" (DECISION_LOG D41, D46).
+#
+# Usage (separate venv, do not mix with .venv):
+#   python3.11 -m venv .venv-deep
+#   ./.venv-deep/bin/pip install -r requirements-deep.txt
+#   PYTHONPATH=src ./.venv-deep/bin/python scripts/week5_deep_and_ensemble.py
+#
+# Note the older numpy/torch here will emit deprecation warnings. That is expected.
+
+numpy>=1.18,<2
+torch>=1.7,<2
+rtdl==0.0.13
+
+# Support packages the Week 5 script needs alongside rtdl. Kept at floors compatible with numpy<2.
+pandas>=2.0,<2.3
+pyarrow>=16.0
+scikit-learn>=1.5,<1.6
+polars>=1.0
+pyyaml>=6.0.2

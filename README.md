@@ -94,12 +94,21 @@ build scripts assemble it and three auditors gate it, so no slide claim is hand-
 
 ## Quickstart
 
+Needs Python 3.11 or newer (`requires-python = ">=3.11"`).
+
 ```bash
-python3 -m venv .venv
+python3.11 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 pytest                      # 137 passed, 4 skipped (skips need the gitignored raw data)
 ```
+
+Two optional environments exist so the common paths stay light. `requirements-app.txt` is the
+four-package set the Streamlit dashboard needs; `requirements-deep.txt` is an isolated env used only
+to re-run the FT-Transformer benchmark, because `rtdl` pins `torch<2` and cannot coexist with the
+main stack. Neither is needed for normal work.
+
+Switching machines, or picking this up cold? Start with [`HANDOFF.md`](HANDOFF.md).
 
 Run the interactive dashboard (needs only the 4 packages in `requirements-app.txt`):
 
@@ -161,6 +170,17 @@ presentation/    the 13-slide final deck, its speaker script, and generated figu
 data/            raw, interim, processed (gitignored; populated by the scripts above)
 docs/process/    week-1 working notes
 ```
+
+Project documents, in the order they are useful:
+
+| Document | What it is for |
+|---|---|
+| [`HANDOFF.md`](HANDOFF.md) | Setting up on a new machine, and what is deliberately not in the repo |
+| [`FINDINGS.md`](FINDINGS.md) | Every result, F1-F27, each with its source script |
+| [`DECISION_LOG.md`](DECISION_LOG.md) | 48 decisions with evidence and dates, including the ones reversed |
+| [`FUTURE_WORK.md`](FUTURE_WORK.md) | What was considered but not built, with blockers and costs |
+| [`SPEC.md`](SPEC.md) | The functional requirements the pipeline gates enforce |
+| [`DEPLOY.md`](DEPLOY.md) | Putting the dashboard on a free tier |
 
 ## Data
 
