@@ -161,15 +161,21 @@ Small, unglamorous, and it will bite whoever picks this up.
    the project's torch>=2.3 and samplics' numpy>=2.1. This broke `pip install -r requirements.txt`
    outright and was failing CI at the install step. Fixed by moving `rtdl` to
    [`requirements-deep.txt`](requirements-deep.txt). Confirm CI is green before trusting the install.
-2. **Pin exact versions.** The file is all floors (`>=`), so two clean clones months apart get
-   different resolutions. `pip freeze` into a lock file once an environment is known good. Note
-   `shap>=0.52` now needs Python 3.12+, so a 3.11 env silently resolves to an older shap.
-3. **xgboost C-extension segfault (previous laptop, macOS).** Crashed the interpreter on import,
+2. **CI lint went red on its own, now fixed.** `ruff>=0.5` meant CI installed ruff 0.16.3 against a
+   codebase validated on 0.6.9. Newer ruff enables more rules by default, so 56 new style findings
+   appeared with no code change. Fixed by declaring `select = ["E4", "E7", "E9", "F"]` in
+   `pyproject.toml`, verified under both versions. Widen that list deliberately if you want stricter
+   linting.
+3. **Pin exact versions.** The file is all floors (`>=`), which is the shared root cause of items 1
+   and 2: two clean clones months apart get different resolutions. `pip freeze` into a lock file once
+   an environment is known good. Note `shap>=0.52` now needs Python 3.12+, so a 3.11 env silently
+   resolves to an older shap.
+4. **xgboost C-extension segfault (previous laptop, macOS).** Crashed the interpreter on import,
    blocking 5 test files; reproduced on xgboost 3.2.0 and 2.1.4 under both numpy 1.26.4 and 2.4.6.
    Environment-specific, not a code defect. Suspect the OpenMP runtime (`brew install libomp`).
    Check whether it reproduces on the new machine before spending time on it.
-4. **Descoped multiclass plumbing.** Retaining `oegest_comb` in the modeling Parquet unblocks item 2
-   above and costs one preprocessing change.
+5. **Descoped multiclass plumbing.** Retaining `oegest_comb` in the modeling Parquet unblocks Tier 1
+   item 2 and costs one preprocessing change.
 
 ---
 

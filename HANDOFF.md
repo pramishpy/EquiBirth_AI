@@ -176,10 +176,23 @@ and 2.1.4, under both numpy 1.26.4 and 2.4.6, so it was environment-specific rat
 defect. Most likely the OpenMP runtime; try `brew install libomp`. **Check whether it reproduces at
 all on the new machine before spending time on it.**
 
-**3. All dependency versions are floors, not pins.** Two clean clones months apart will resolve
-differently. Once the new environment is verified good, `pip freeze > requirements.lock.txt` and
-commit it. Related: `shap>=0.52` now requires Python 3.12+, so a 3.11 environment quietly resolves
-to an older shap.
+**3. CI lint was red because the ruff rule set floated. Fixed on 2026-08-19.**
+
+`requirements.txt` asks for `ruff>=0.5`, so CI installed the newest ruff (0.16.3) while the project
+was validated against 0.6.9. Ruff's default rule set grows between releases, and 0.16 raised 56 new
+style findings that 0.6.9 never did, mostly `C408` (`dict()` calls that could be literals). None was
+a defect. One that looks alarming is benign: `PLR0124 Name compared with itself` at
+`src/equibirth/models/evaluate.py:154` is the deliberate `val == val` NaN check, already commented.
+
+Fixed by declaring the rule set explicitly in `pyproject.toml` under `[tool.ruff.lint]`
+(`select = ["E4", "E7", "E9", "F"]`) instead of inheriting shifting defaults. Verified clean under
+both ruff 0.6.9 and 0.16.3. If you want stricter linting, widen that list deliberately and fix the
+findings; do not let a dependency upgrade decide it for you.
+
+**4. All dependency versions are floors, not pins.** Two clean clones months apart will resolve
+differently, which is the root cause of both issues above. Once the new environment is verified good,
+`pip freeze > requirements.lock.txt` and commit it. Related: `shap>=0.52` now requires Python 3.12+,
+so a 3.11 environment quietly resolves to an older shap.
 
 ---
 
