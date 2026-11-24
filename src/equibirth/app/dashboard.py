@@ -799,8 +799,10 @@ def main() -> None:
 
     st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown(
-        """<p class="foot">Built by <b>Parshv Patel</b> &nbsp;|&nbsp;
-        <a href="https://www.linkedin.com/in/parshv-patel-65a90326b/">LinkedIn</a><br>
+        """<p class="foot">Built by <b>Bhavika Kothapalli</b>, <b>Parshv Patel</b>
+        (<a href="https://www.linkedin.com/in/parshv-patel-65a90326b/">LinkedIn</a>),
+        <b>Nadia Woo</b>, <b>Pramish Pandey</b>, <b>Nathalie Rodriguez</b>, <b>Andrew Pierre</b>
+        and <b>Bhavya Agarwal</b><br>
         EquiBirth AI, an educational and research demonstration. Not a clinical tool. Race is a social
         construct and a marker of exposure to racism, not a biological cause of preterm birth.</p>""",
         unsafe_allow_html=True)
