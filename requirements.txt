@@ -1,70 +1,8 @@
-# EquiBirth AI - pinned dependencies (Python 3.11+)
-# Phase 0 needs only pyyaml + pytest. Heavier deps are installed as phases need them.
-# Versions are floors; lock exact versions with pip freeze once the env is built out.
-
-# ---- Core / config / utils ----
-pyyaml>=6.0.2
-python-json-logger>=2.0.7
-
-# ---- Data engineering ----
-numpy>=1.26
-pandas>=2.2
-polars>=1.0
-pyarrow>=16.0
-dask[dataframe]>=2024.5
-
-# ---- Classical ML ----
-scikit-learn>=1.5
-imbalanced-learn>=0.12
-xgboost>=2.1
-lightgbm>=4.4
-catboost>=1.2
-optuna>=3.6
-
-# ---- Deep learning (tabular) ----
-torch>=2.3
-pytorch-lightning>=2.3
-pytorch-tabnet>=4.1
-# rtdl (FT-Transformer) is deliberately NOT here: rtdl 0.0.13 pins torch<2 and numpy<2, which
-# cannot coexist with torch>=2.3 above or with samplics (numpy>=2.1). Installing it here makes the
-# whole file unresolvable. The FT-Transformer benchmark is already complete and its numbers are
-# archived in reports/week5_models.json, so nothing in the pipeline needs it. To re-run only that
-# benchmark, build the separate env in requirements-deep.txt. See HANDOFF.md.
-# tabpfn>=2.0  # experimental (Correction 4); enable in Phase 5 on a size-appropriate subsample
-
-# ---- Unsupervised / exploration (Phase 8) ----
-umap-learn>=0.5
-hdbscan>=0.8
-
-# ---- Explainability ----
-shap>=0.46
-
-# ---- Fairness ----
-fairlearn>=0.10
-aequitas>=1.0
-
-# ---- Survey stats (NHANES weights) ----
-statsmodels>=0.14
-samplics>=0.4
-
-# ---- Visualization ----
-matplotlib>=3.9
-seaborn>=0.13
-plotly>=5.22
-
-# ---- App ----
+# Minimal dependencies for the EquiBirth AI Streamlit dashboard ONLY.
+# The deployed app reads committed aggregates from reports/dashboard_data.json, so it needs no raw data,
+# no ML libraries, and no heavy build. Use THIS file (not the full requirements.txt) for Streamlit
+# Community Cloud so the build stays small and fast and fits the free-tier resource limit.
 streamlit>=1.36
-
-# ---- Experiment tracking ----
-wandb>=0.17
-
-# ---- Dev / test ----
-pytest>=8.0
-pytest-cov>=5.0
-ruff>=0.5
-mypy>=1.10
-
-# ---- Notebooks (compiled last from verified scripts) ----
-nbformat>=5.10
-nbconvert>=7.16
-ipykernel>=6.29
+plotly>=5.22
+pandas>=2.2
+numpy>=1.26
